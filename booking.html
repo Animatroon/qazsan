@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3872B8" />
+    <title>Бронирование путёвки — QAZAQSTAN Resort | Санаторий в Алматы</title>
+    <meta name="description" content="Забронируйте путёвку в санаторий QAZAQSTAN Resort онлайн: выберите даты, тип номера, дополнительные услуги и оставьте заявку. Быстрый ответ — в течение 2 часов." />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://kazakhstansan.kz/booking/" />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="alternate" hreflang="ru" href="https://kazakhstansan.kz/booking/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
+    <link rel="stylesheet" href="/assets/css/app.css" />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Перейти к контенту</a>
+    <div data-include="header"></div>
+
+    <main id="main">
+
+      <div class="page-hero" style="padding-top:120px;padding-bottom:48px;">
+        <div class="container">
+          <nav class="breadcrumbs mb-6" aria-label="Хлебные крошки">
+            <ol>
+              <li><a href="/">Главная</a></li>
+              <li aria-hidden="true"><span class="breadcrumbs__sep">/</span></li>
+              <li><a href="/booking.html" style="pointer-events:none;font-weight:700;">Бронирование</a></li>
+            </ol>
+          </nav>
+          <h1 class="h1">Забронировать путёвку</h1>
+          <p class="mt-3" style="font-size:16px;color:var(--soft-grey);max-width:560px;">
+            Заполните форму — наш менеджер свяжется с вами в течение 2 часов для подтверждения и согласования деталей.
+          </p>
+        </div>
+      </div>
+
+      <section class="section" id="booking-form" aria-label="Форма бронирования">
+        <div class="container">
+          <div class="booking-layout">
+
+            <div class="booking-steps" role="list" aria-label="Шаги бронирования" id="step-nav">
+              <div class="booking-step-item is-active" role="listitem">
+                <div class="booking-step-num">1</div>
+                <div class="booking-step-label">Даты и срок</div>
+              </div>
+              <div class="booking-step-item" role="listitem">
+                <div class="booking-step-num">2</div>
+                <div class="booking-step-label">Тип номера</div>
+              </div>
+              <div class="booking-step-item" role="listitem">
+                <div class="booking-step-num">3</div>
+                <div class="booking-step-label">Доп. услуги</div>
+              </div>
+              <div class="booking-step-item" role="listitem">
+                <div class="booking-step-num">4</div>
+                <div class="booking-step-label">Данные гостя</div>
+              </div>
+              <div class="booking-step-item" role="listitem">
+                <div class="booking-step-num">5</div>
+                <div class="booking-step-label">Подтверждение</div>
+              </div>
+            </div>
+
+            <div>
+              <form id="booking-form-el" method="POST" action="/wp-admin/admin-ajax.php" novalidate>
+                <input type="hidden" name="action" value="qazaqstan_booking" />
+                <input type="hidden" name="_nonce" value="" />
+                <input type="text" name="website" style="display:none;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+                <div id="step-1" class="booking-panel" style="display:block;">
+                  <div class="booking-panel__title">
+                    <span style="color:var(--klein-blue);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:4px;">Шаг 1 из 5</span>
+                    Выберите даты и срок
+                  </div>
+
+                  <div class="contact-form__field mb-6">
+                    <label class="contact-form__label" for="guests-count">Количество гостей</label>
+                    <div style="display:flex;gap:12px;">
+                      <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--warm-grey);border-radius:8px;background:#fff;min-width:120px;">
+                        <button type="button" id="guests-minus" style="width:28px;height:28px;border-radius:6px;background:var(--off-white);border:1px solid var(--warm-grey);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:700;" aria-label="Убрать гостя">−</button>
+                        <span id="guests-count" style="font-family:'Manrope',sans-serif;font-weight:800;font-size:18px;min-width:20px;text-align:center;" aria-live="polite">2</span>
+                        <button type="button" id="guests-plus" style="width:28px;height:28px;border-radius:6px;background:var(--off-white);border:1px solid var(--warm-grey);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;font-family:'Manrope',sans-serif;font-weight:700;" aria-label="Добавить гостя">+</button>
+                      </div>
+                      <span style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;align-self:center;">гостя(-ей) на путёвку</span>
+                    </div>
+                    <input type="hidden" name="guests" id="guests-input" value="2" />
+                  </div>
+
+                  <div class="date-input-group mb-6">
+                    <div class="contact-form__field" style="margin:0;">
+                      <label class="contact-form__label" for="date-in">Дата заезда</label>
+                      <input type="date" id="date-in" name="date_in" class="contact-form__input" required />
+                    </div>
+                    <div class="contact-form__field" style="margin:0;">
+                      <label class="contact-form__label" for="date-out">Дата выезда</label>
+                      <input type="date" id="date-out" name="date_out" class="contact-form__input" required />
+                    </div>
+                  </div>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label">Срок путёвки</label>
+                    <div class="duration-selector" role="group" aria-label="Выбор срока">
+                      <button type="button" class="duration-btn is-active" data-days="7">7 дней</button>
+                      <button type="button" class="duration-btn" data-days="10">10 дней</button>
+                      <button type="button" class="duration-btn" data-days="14">14 дней</button>
+                      <button type="button" class="duration-btn" data-days="21">21 день</button>
+                    </div>
+                    <input type="hidden" name="duration" id="duration-input" value="7" />
+                    <p style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:8px;">Рекомендуемый минимум — 14 дней для достижения лечебного эффекта.</p>
+                  </div>
+
+                  <div class="mt-8 flex justify-end">
+                    <button type="button" class="btn btn--primary" id="next-1">Далее — выбор номера</button>
+                  </div>
+                </div>
+
+                <div id="step-2" class="booking-panel" style="display:none;">
+                  <div class="booking-panel__title">
+                    <span style="color:var(--klein-blue);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:4px;">Шаг 2 из 5</span>
+                    Выберите тип номера
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px;" role="group" aria-label="Типы номеров">
+
+                    <label class="room-option is-selected" for="room-std1">
+                      <div class="room-option__thumb">
+                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=160&auto=format&fit=crop&q=75" alt="Стандарт 1-местный" loading="lazy" />
+                      </div>
+                      <div>
+                        <div class="room-option__name">Стандарт 1-местный</div>
+                        <div class="room-option__sub">18 м², 1 кровать, душ, телевизор</div>
+                      </div>
+                      <div style="text-align:right;">
+                        <div class="room-option__price">32 000 ₸</div>
+                        <div style="font-size:12px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;">в сутки</div>
+                      </div>
+                      <input type="radio" name="room_type" id="room-std1" value="standard-single" style="position:absolute;opacity:0;" checked />
+                    </label>
+
+                    <label class="room-option" for="room-std2">
+                      <div class="room-option__thumb">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=160&auto=format&fit=crop&q=75" alt="Стандарт 2-местный" loading="lazy" />
+                      </div>
+                      <div>
+                        <div class="room-option__name">Стандарт 2-местный</div>
+                        <div class="room-option__sub">24 м², 2 кровати, ванная</div>
+                      </div>
+                      <div style="text-align:right;">
+                        <div class="room-option__price">56 000 ₸</div>
+                        <div style="font-size:12px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;">в сутки</div>
+                      </div>
+                      <input type="radio" name="room_type" id="room-std2" value="standard-double" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="room-option" for="room-lux1">
+                      <div class="room-option__thumb">
+                        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=160&auto=format&fit=crop&q=75" alt="Люкс 1-местный" loading="lazy" />
+                      </div>
+                      <div>
+                        <div class="room-option__name">Люкс 1-местный</div>
+                        <div class="room-option__sub">28 м², гостиная, ванная с джакузи</div>
+                      </div>
+                      <div style="text-align:right;">
+                        <div class="room-option__price">45 000 ₸</div>
+                        <div style="font-size:12px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;">в сутки</div>
+                      </div>
+                      <input type="radio" name="room_type" id="room-lux1" value="lux-single" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="room-option" for="room-lux2">
+                      <div class="room-option__thumb">
+                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=160&auto=format&fit=crop&q=75" alt="Люкс 2-местный" loading="lazy" />
+                      </div>
+                      <div>
+                        <div class="room-option__name">Люкс 2-местный</div>
+                        <div class="room-option__sub">38 м², гостиная, 2 ванные</div>
+                      </div>
+                      <div style="text-align:right;">
+                        <div class="room-option__price">70 000 ₸</div>
+                        <div style="font-size:12px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;">в сутки</div>
+                      </div>
+                      <input type="radio" name="room_type" id="room-lux2" value="lux-double" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="room-option" for="room-pres1">
+                      <div class="room-option__thumb">
+                        <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=160&auto=format&fit=crop&q=75" alt="Президентский люкс" loading="lazy" />
+                      </div>
+                      <div>
+                        <div class="room-option__name">Президентский Люкс</div>
+                        <div class="room-option__sub">55 м², терраса, 2 спальни, джакузи</div>
+                      </div>
+                      <div style="text-align:right;">
+                        <div class="room-option__price">80 000 ₸</div>
+                        <div style="font-size:12px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;">в сутки</div>
+                      </div>
+                      <input type="radio" name="room_type" id="room-pres1" value="presidential-single" style="position:absolute;opacity:0;" />
+                    </label>
+                  </div>
+
+                  <div class="mt-8 flex justify-between gap-4 flex-wrap">
+                    <button type="button" class="btn btn--secondary" id="prev-2">Назад</button>
+                    <button type="button" class="btn btn--primary" id="next-2">Далее — дополнительные услуги</button>
+                  </div>
+                </div>
+
+                <div id="step-3" class="booking-panel" style="display:none;">
+                  <div class="booking-panel__title">
+                    <span style="color:var(--klein-blue);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:4px;">Шаг 3 из 5</span>
+                    Дополнительные услуги
+                  </div>
+                  <p style="font-size:14px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-bottom:20px;">Базовая программа уже включена в путёвку. Ниже — дополнительные опции за отдельную плату.</p>
+
+                  <div style="display:flex;flex-direction:column;gap:8px;">
+                    <label class="extra-toggle" for="extra-radon">
+                      <div class="extra-toggle__check">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div style="flex:1;">
+                        <div class="extra-toggle__title">Радоновые ванны — курс 10 сеансов</div>
+                        <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:2px;">По назначению врача. 10–15 мин каждый сеанс</div>
+                      </div>
+                      <div class="extra-toggle__price">35 000 ₸</div>
+                      <input type="checkbox" name="extras" id="extra-radon" value="radon-10" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="extra-toggle" for="extra-thai">
+                      <div class="extra-toggle__check">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div style="flex:1;">
+                        <div class="extra-toggle__title">Тайский массаж — 3 сеанса</div>
+                        <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:2px;">60 мин каждый. Глубокое расслабление</div>
+                      </div>
+                      <div class="extra-toggle__price">15 000 ₸</div>
+                      <input type="checkbox" name="extras" id="extra-thai" value="thai-3" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="extra-toggle" for="extra-transfer">
+                      <div class="extra-toggle__check">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div style="flex:1;">
+                        <div class="extra-toggle__title">Трансфер аэропорт ↔ санаторий</div>
+                        <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:2px;">Авто комфорт-класса, встреча с табличкой</div>
+                      </div>
+                      <div class="extra-toggle__price">16 000 ₸</div>
+                      <input type="checkbox" name="extras" id="extra-transfer" value="transfer-both" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="extra-toggle" for="extra-excursion">
+                      <div class="extra-toggle__check">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div style="flex:1;">
+                        <div class="extra-toggle__title">Экскурсия по Алматы и горам</div>
+                        <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:2px;">Медео, Шымбулак, Большое Алматинское озеро</div>
+                      </div>
+                      <div class="extra-toggle__price">12 000 ₸</div>
+                      <input type="checkbox" name="extras" id="extra-excursion" value="excursion-almaty" style="position:absolute;opacity:0;" />
+                    </label>
+
+                    <label class="extra-toggle" for="extra-spa">
+                      <div class="extra-toggle__check">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                      </div>
+                      <div style="flex:1;">
+                        <div class="extra-toggle__title">СПА-программа «Алатау» (3 часа)</div>
+                        <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:2px;">Пилинг + обертывание + массаж + джакузи</div>
+                      </div>
+                      <div class="extra-toggle__price">18 000 ₸</div>
+                      <input type="checkbox" name="extras" id="extra-spa" value="spa-alataу" style="position:absolute;opacity:0;" />
+                    </label>
+                  </div>
+
+                  <div class="mt-8 flex justify-between gap-4 flex-wrap">
+                    <button type="button" class="btn btn--secondary" id="prev-3">Назад</button>
+                    <button type="button" class="btn btn--primary" id="next-3">Далее — данные гостя</button>
+                  </div>
+                </div>
+
+                <div id="step-4" class="booking-panel" style="display:none;">
+                  <div class="booking-panel__title">
+                    <span style="color:var(--klein-blue);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:4px;">Шаг 4 из 5</span>
+                    Данные гостя
+                  </div>
+
+                  <div class="contact-form__row">
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="b-first-name">Имя *</label>
+                      <input type="text" id="b-first-name" name="first_name" class="contact-form__input" placeholder="Алибек" autocomplete="given-name" required />
+                    </div>
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="b-last-name">Фамилия *</label>
+                      <input type="text" id="b-last-name" name="last_name" class="contact-form__input" placeholder="Сейтов" autocomplete="family-name" required />
+                    </div>
+                  </div>
+
+                  <div class="contact-form__row">
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="b-phone">Телефон *</label>
+                      <input type="tel" id="b-phone" name="phone" class="contact-form__input" placeholder="+7 (___) ___-__-__" autocomplete="tel" required />
+                    </div>
+                    <div class="contact-form__field">
+                      <label class="contact-form__label" for="b-email">Email</label>
+                      <input type="email" id="b-email" name="email" class="contact-form__input" placeholder="name@example.com" autocomplete="email" />
+                    </div>
+                  </div>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label" for="b-discount">Категория скидки</label>
+                    <div class="contact-form__select-wrap">
+                      <select id="b-discount" name="discount_category" class="contact-form__select">
+                        <option value="">— без скидки —</option>
+                        <option value="pension-age">Пенсионер по возрасту (до 10%)</option>
+                        <option value="mvd-active">Сотрудник МВД РК + родственник (20%)</option>
+                        <option value="mvd-pension">Пенсионер МВД РК + родственник (30%)</option>
+                      </select>
+                      <span class="contact-form__select-icon" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                      </span>
+                    </div>
+                    <p style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:4px;">Необходим документ, подтверждающий право на скидку, при заезде.</p>
+                  </div>
+
+                  <div class="contact-form__field">
+                    <label class="contact-form__label" for="b-wishes">Пожелания и медицинские комментарии</label>
+                    <textarea id="b-wishes" name="wishes" class="contact-form__input contact-form__textarea" placeholder="Например: аллергия на пенициллин, необходима диета при диабете, предпочтение тихого этажа..."></textarea>
+                  </div>
+
+                  <div class="mt-8 flex justify-between gap-4 flex-wrap">
+                    <button type="button" class="btn btn--secondary" id="prev-4">Назад</button>
+                    <button type="button" class="btn btn--primary" id="next-4">Перейти к подтверждению</button>
+                  </div>
+                </div>
+
+                <div id="step-5" class="booking-panel" style="display:none;">
+                  <div class="booking-panel__title">
+                    <span style="color:var(--klein-blue);font-size:14px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;display:block;margin-bottom:4px;">Шаг 5 из 5</span>
+                    Проверьте и подтвердите
+                  </div>
+
+                  <div class="booking-summary">
+                    <div class="booking-summary__head">Ваш заказ</div>
+                    <div class="booking-summary__row">
+                      <span>Даты</span>
+                      <span class="booking-summary__value" id="summary-dates">—</span>
+                    </div>
+                    <div class="booking-summary__row">
+                      <span>Срок</span>
+                      <span class="booking-summary__value" id="summary-duration">7 дней</span>
+                    </div>
+                    <div class="booking-summary__row">
+                      <span>Гостей</span>
+                      <span class="booking-summary__value" id="summary-guests">2</span>
+                    </div>
+                    <div class="booking-summary__row">
+                      <span>Номер</span>
+                      <span class="booking-summary__value" id="summary-room">Стандарт 1-местный</span>
+                    </div>
+                    <div class="booking-summary__total">
+                      <span class="booking-summary__total-label">Предварительная стоимость</span>
+                      <span class="booking-summary__total-price" id="summary-price">Уточнит менеджер</span>
+                    </div>
+                  </div>
+
+                  <div style="background:rgba(56,114,184,0.05);border:1px solid rgba(56,114,184,0.15);border-radius:12px;padding:16px 20px;margin-top:20px;font-size:14px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;line-height:1.6;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--klein-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;margin-right:6px;vertical-align:-2px;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    После отправки заявки менеджер свяжется с вами по указанному телефону в течение <strong>2 рабочих часов</strong> для согласования окончательной стоимости с учётом скидки и подтверждения бронирования.
+                  </div>
+
+                  <div class="contact-form__field" style="margin-top:20px;">
+                    <label class="contact-form__checkbox-label">
+                      <input type="checkbox" name="consent" class="contact-form__checkbox" required />
+                      <span>Я согласен(на) на обработку персональных данных в соответствии с <a href="/privacy/" style="color:var(--klein-blue);">Политикой конфиденциальности</a> АО «Санаторий Казахстан».</span>
+                    </label>
+                  </div>
+
+                  <div class="mt-8 flex justify-between gap-4 flex-wrap">
+                    <button type="button" class="btn btn--secondary" id="prev-5">Назад</button>
+                    <button type="submit" class="btn btn--primary btn--lg">Отправить заявку</button>
+                  </div>
+                </div>
+
+              </form>
+
+              <div id="booking-success" style="display:none;" class="booking-panel text-center">
+                <div style="width:64px;height:64px;border-radius:50%;background:rgba(94,147,64,0.1);color:var(--may-green);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h2 class="h3 mb-4">Заявка отправлена!</h2>
+                <p style="font-size:16px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;line-height:1.65;max-width:480px;margin:0 auto;">
+                  Спасибо! Ваша заявка принята. Менеджер свяжется с вами по указанному телефону в течение 2 рабочих часов для подтверждения бронирования.
+                </p>
+                <div class="mt-8 flex flex-wrap gap-3 justify-center">
+                  <a href="/" class="btn btn--primary">На главную</a>
+                  <a href="/treatment.html" class="btn btn--secondary">Программы лечения</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section bg-white" aria-label="Почему выбирают нас">
+        <div class="container">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div style="text-align:center;">
+              <div style="width:52px;height:52px;border-radius:14px;background:rgba(56,114,184,0.08);color:var(--klein-blue);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:var(--charcoal);">Ответ за 2 часа</div>
+              <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:4px;">В рабочее время</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:52px;height:52px;border-radius:14px;background:rgba(94,147,64,0.08);color:var(--may-green);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:var(--charcoal);">Без предоплаты</div>
+              <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:4px;">Оплата при заезде</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:52px;height:52px;border-radius:14px;background:rgba(46,170,225,0.08);color:var(--bright-cerulean);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </div>
+              <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:var(--charcoal);">Безопасно</div>
+              <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:4px;">Данные защищены</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:52px;height:52px;border-radius:14px;background:rgba(255,222,89,0.2);color:#9a7800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div style="font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:var(--charcoal);">Скидки МВД</div>
+              <div style="font-size:13px;color:var(--soft-grey);font-family:'PT Sans',sans-serif;margin-top:4px;">До 30% для сотрудников</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <div data-include="footer"></div>
+
+    <script type="module" src="/assets/js/main.js"></script>
+    <script>
+      const steps = ['step-1','step-2','step-3','step-4','step-5'];
+      const navItems = document.querySelectorAll('.booking-step-item');
+      let current = 0;
+
+      function goTo(n) {
+        document.getElementById(steps[current]).style.display = 'none';
+        navItems[current].classList.remove('is-active');
+        if (n > current) navItems[current].classList.add('is-done');
+        current = n;
+        document.getElementById(steps[current]).style.display = 'block';
+        navItems[current].classList.add('is-active');
+        window.scrollTo({top: document.getElementById('booking-form').offsetTop - 100, behavior: 'smooth'});
+      }
+
+      document.getElementById('next-1')?.addEventListener('click', () => goTo(1));
+      document.getElementById('prev-2')?.addEventListener('click', () => goTo(0));
+      document.getElementById('next-2')?.addEventListener('click', () => goTo(2));
+      document.getElementById('prev-3')?.addEventListener('click', () => goTo(1));
+      document.getElementById('next-3')?.addEventListener('click', () => goTo(3));
+      document.getElementById('prev-4')?.addEventListener('click', () => goTo(2));
+      document.getElementById('next-4')?.addEventListener('click', () => goTo(4));
+      document.getElementById('prev-5')?.addEventListener('click', () => goTo(3));
+
+      const durationBtns = document.querySelectorAll('.duration-btn');
+      durationBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          durationBtns.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+          document.getElementById('duration-input').value = btn.dataset.days;
+          document.getElementById('summary-duration').textContent = btn.dataset.days + ' дней';
+        });
+      });
+
+      let guestsVal = 2;
+      document.getElementById('guests-minus')?.addEventListener('click', () => {
+        if (guestsVal > 1) { guestsVal--; document.getElementById('guests-count').textContent = guestsVal; document.getElementById('guests-input').value = guestsVal; document.getElementById('summary-guests').textContent = guestsVal; }
+      });
+      document.getElementById('guests-plus')?.addEventListener('click', () => {
+        if (guestsVal < 6) { guestsVal++; document.getElementById('guests-count').textContent = guestsVal; document.getElementById('guests-input').value = guestsVal; document.getElementById('summary-guests').textContent = guestsVal; }
+      });
+
+      const roomOptions = document.querySelectorAll('.room-option');
+      roomOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+          roomOptions.forEach(o => o.classList.remove('is-selected'));
+          opt.classList.add('is-selected');
+          const name = opt.querySelector('.room-option__name')?.textContent || '';
+          document.getElementById('summary-room').textContent = name;
+        });
+      });
+
+      const extraToggles = document.querySelectorAll('.extra-toggle');
+      extraToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          toggle.classList.toggle('is-checked');
+          const cb = toggle.querySelector('input[type="checkbox"]');
+          if (cb) cb.checked = toggle.classList.contains('is-checked');
+        });
+      });
+
+      document.getElementById('date-in')?.addEventListener('change', function() {
+        const dateIn = this.value;
+        if (dateIn) {
+          document.getElementById('summary-dates').textContent = new Date(dateIn).toLocaleDateString('ru-RU', {day:'numeric',month:'long',year:'numeric'}) + ' →';
+        }
+      });
+
+      document.getElementById('booking-form-el')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        this.style.display = 'none';
+        document.getElementById('booking-success').style.display = 'block';
+      });
+    </script>
+  </body>
+</html>

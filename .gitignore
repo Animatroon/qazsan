@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+
+# Build output
+dist
+.vite
+
+# Claude Code — settings, agents, memory, instructions (local only)
+.claude
+CLAUDE.md
+
+# Env
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea
+.vscode
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Large binary assets
+*.mov
+*.avi
+
+# Design source files & private client materials
+*.pdf
+*.ai
+*.psd
+*.sketch
+*.fig
+docs/лого\ QAZ/

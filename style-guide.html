@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3872B8" />
+    <title>Style Guide — QAZAQSTAN Resort</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
+  </head>
+  <body>
+    <main class="container py-16 space-y-16">
+      <header>
+        <p class="eyebrow">Дизайн-система</p>
+        <h1 class="h1 mt-4">Style Guide</h1>
+        <p class="mt-4 text-body-lg text-soft-grey max-w-prose-narrow">Превью токенов и компонентов. Используется внутри команды.</p>
+      </header>
+
+      <section>
+        <h2 class="h2">Палитра</h2>
+        <div class="mt-6 grid gap-4 grid-cols-2 md:grid-cols-5">
+          <div><div class="aspect-square rounded-md bg-klein-blue"></div><p class="mt-2 text-sm">Klein Blue</p><p class="text-xs text-soft-grey">#3872B8</p></div>
+          <div><div class="aspect-square rounded-md bg-may-green"></div><p class="mt-2 text-sm">May Green</p><p class="text-xs text-soft-grey">#5E9340</p></div>
+          <div><div class="aspect-square rounded-md bg-bright-cerulean"></div><p class="mt-2 text-sm">Bright Cerulean</p><p class="text-xs text-soft-grey">#2EAAE1</p></div>
+          <div><div class="aspect-square rounded-md bg-light-green"></div><p class="mt-2 text-sm">Light Green</p><p class="text-xs text-soft-grey">#8DB25F</p></div>
+          <div><div class="aspect-square rounded-md bg-mustard"></div><p class="mt-2 text-sm">Mustard</p><p class="text-xs text-soft-grey">#FFDE59</p></div>
+          <div><div class="aspect-square rounded-md bg-off-white border border-warm-grey"></div><p class="mt-2 text-sm">Off-white</p><p class="text-xs text-soft-grey">#F8F9F6</p></div>
+          <div><div class="aspect-square rounded-md bg-warm-grey"></div><p class="mt-2 text-sm">Warm Grey</p><p class="text-xs text-soft-grey">#E5E7E2</p></div>
+          <div><div class="aspect-square rounded-md bg-charcoal"></div><p class="mt-2 text-sm">Charcoal</p><p class="text-xs text-soft-grey">#2A2D2B</p></div>
+          <div><div class="aspect-square rounded-md bg-soft-grey"></div><p class="mt-2 text-sm">Soft Grey</p><p class="text-xs text-soft-grey">#6B6E6A</p></div>
+          <div><div class="aspect-square rounded-md bg-footer-navy"></div><p class="mt-2 text-sm">Footer Navy</p><p class="text-xs text-soft-grey">#1F3A52</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="h2">Градиенты</h2>
+        <div class="mt-6 grid gap-4 md:grid-cols-2">
+          <div class="h-32 rounded-lg bg-gradient-water flex items-end p-4 text-white text-sm">gradient-water</div>
+          <div class="h-32 rounded-lg bg-gradient-nature flex items-end p-4 text-white text-sm">gradient-nature</div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="h2">Типографика</h2>
+        <div class="mt-6 space-y-6">
+          <div><p class="eyebrow">eyebrow</p><h1 class="h1 mt-2">Display 1 — заголовок hero</h1></div>
+          <h2 class="h2">Display 2 — заголовок секции</h2>
+          <h3 class="h3">H3 — подзаголовок</h3>
+          <p class="text-body-lg">Body Large — крупный параграф для лидов и описаний.</p>
+          <p class="text-body-md">Body Medium — основной параграф текста.</p>
+          <p class="accent-text">QAZAQSTAN Resort</p>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="h2">Кнопки</h2>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <button class="btn btn--primary">Primary</button>
+          <button class="btn btn--secondary">Secondary</button>
+          <button class="btn btn--ghost">Ghost</button>
+          <button class="btn btn--primary btn--sm">Small</button>
+          <button class="btn btn--primary btn--lg">Large</button>
+          <button class="btn btn--primary" disabled>Disabled</button>
+        </div>
+        <div class="mt-4 p-6 bg-charcoal rounded-lg flex flex-wrap gap-3">
+          <button class="btn btn--white">White</button>
+          <button class="btn btn--ghost-white">Ghost White</button>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="h2">Карточки</h2>
+        <div class="mt-6 grid gap-6 md:grid-cols-3">
+          <article class="card">
+            <div class="card__media"></div>
+            <div class="card__body">
+              <span class="card__eyebrow">Стандарт</span>
+              <h3 class="card__title">Стандартный одноместный</h3>
+              <p class="card__text">Уютный номер для одного гостя.</p>
+            </div>
+          </article>
+          <article class="card card--featured">
+            <div class="card__media"></div>
+            <div class="card__body">
+              <span class="card__eyebrow">Люкс</span>
+              <h3 class="card__title">Люкс двухместный</h3>
+              <p class="card__text">Просторный номер с видом на горы.</p>
+            </div>
+          </article>
+          <article class="card card--minimal">
+            <div class="card__media"></div>
+            <div class="card__body">
+              <span class="card__eyebrow">Президентский</span>
+              <h3 class="card__title">Президентский Люкс</h3>
+              <p class="card__text">Премиум номер с гостиной.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="h2">Бейджи</h2>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="badge badge--discount">Скидка 30%</span>
+          <span class="badge badge--discount">Скидка 20%</span>
+          <span class="badge badge--discount">До 10%</span>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/assets/js/main.js"></script>
+  </body>
+</html>
