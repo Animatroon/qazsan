@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_URL: ${{ vars.VITE_BASE_URL || '/' }}
+          VITE_BASE_URL: ${{ vars.VITE_BASE_URL || '/qazsan/' }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
