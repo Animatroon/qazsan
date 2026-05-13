@@ -13,7 +13,7 @@ async function loadPartials() {
     nodes.map(async (node) => {
       const name = node.getAttribute('data-include');
       try {
-        const res = await fetch(`/components/${name}.html`);
+        const res = await fetch(`${import.meta.env.BASE_URL}components/${name}.html`);
         if (!res.ok) throw new Error(`Failed to load ${name}: ${res.status}`);
         const html = await res.text();
         const tpl = document.createElement('template');
