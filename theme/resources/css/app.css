@@ -1,4 +1,5 @@
 @import "tailwindcss" theme(static);
+@import "./components.css";
 @source "../../app/**/*.php";
 @source "../**/*.blade.php";
 @source "../**/*.js";
