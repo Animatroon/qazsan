@@ -23,9 +23,20 @@ use App\Taxonomies\Amenity;
 use App\Taxonomies\DocType;
 use App\Taxonomies\MedicalProfile;
 use App\Taxonomies\RoomType;
+use App\Forms\BookingHandler;
+use App\Forms\AppealHandler;
+use App\Forms\ApplyHandler;
+use App\Seo\SchemaBuilder;
+use App\Admin\Columns;
 use Illuminate\Support\Facades\Vite;
 
 require_once __DIR__ . '/helpers.php';
+
+BookingHandler::register();
+AppealHandler::register();
+ApplyHandler::register();
+SchemaBuilder::register();
+Columns::register();
 
 add_action('init', function () {
     Room::register();
@@ -43,6 +54,16 @@ add_action('init', function () {
     RoomType::register();
     Amenity::register();
     DocType::register();
+}, 5);
+
+add_action('wp_head', function () {
+    printf(
+        '<script>window.qazaqstanApi = %s;</script>',
+        wp_json_encode([
+            'root'  => esc_url_raw(rest_url('qazaqstan/v1/')),
+            'nonce' => wp_create_nonce('wp_rest'),
+        ])
+    );
 }, 5);
 
 add_action('acf/init', function () {

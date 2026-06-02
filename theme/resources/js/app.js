@@ -1,5 +1,6 @@
 import { initHeader } from './modules/header.js';
 import { initMenu } from './modules/menu.js';
+import { initForms } from './modules/forms.js';
 
 const ready = () =>
   document.readyState === 'loading'
@@ -60,4 +61,5 @@ function initReviewsCarousel() {
   initHeader();
   initMenu();
   initReviewsCarousel();
+  initForms();
 })();
