@@ -28,6 +28,8 @@ use App\Forms\AppealHandler;
 use App\Forms\ApplyHandler;
 use App\Seo\SchemaBuilder;
 use App\Admin\Columns;
+use App\Multilingual;
+use App\Performance;
 use Illuminate\Support\Facades\Vite;
 
 require_once __DIR__ . '/helpers.php';
@@ -37,6 +39,8 @@ AppealHandler::register();
 ApplyHandler::register();
 SchemaBuilder::register();
 Columns::register();
+Multilingual::register();
+Performance::register();
 
 add_action('init', function () {
     Room::register();
