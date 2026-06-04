@@ -30,10 +30,14 @@
   $phone = qazaqstan_option('phone_primary') ?: '+7 (727) 264-64-54';
 @endphp
 
-@include('partials.breadcrumbs', ['breadcrumbs' => [
-  ['label' => __('Проживание', 'qazaqstan'), 'url' => home_url('/accommodation/')],
-  ['label' => $post->post_title],
-]])
+<div class="pt-[136px] pb-2 bg-off-white border-b border-warm-grey">
+  <div class="container">
+    @include('partials.breadcrumbs', ['breadcrumbs' => [
+      ['label' => __('Проживание', 'qazaqstan'), 'url' => home_url('/accommodation/')],
+      ['label' => $post->post_title],
+    ]])
+  </div>
+</div>
 
 <section class="section" aria-labelledby="room-heading">
   <div class="container">

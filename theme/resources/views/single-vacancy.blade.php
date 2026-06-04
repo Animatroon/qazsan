@@ -11,10 +11,14 @@
   $duties  = qazaqstan_field('vacancy_duties', $post->ID) ?: [];
 @endphp
 
-@include('partials.breadcrumbs', ['breadcrumbs' => [
-  ['label' => __('Вакансии', 'qazaqstan'), 'url' => get_post_type_archive_link('vacancy')],
-  ['label' => $post->post_title],
-]])
+<div class="pt-[136px] pb-2 bg-off-white border-b border-warm-grey">
+  <div class="container">
+    @include('partials.breadcrumbs', ['breadcrumbs' => [
+      ['label' => __('Вакансии', 'qazaqstan'), 'url' => get_post_type_archive_link('vacancy')],
+      ['label' => $post->post_title],
+    ]])
+  </div>
+</div>
 
 <section class="section">
   <div class="container">

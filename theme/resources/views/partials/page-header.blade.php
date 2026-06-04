@@ -1,3 +1,5 @@
 <div class="page-header">
-  <h1>{!! $title !!}</h1>
+  <div class="container">
+    <h1>{{ $title ?? get_the_title() }}</h1>
+  </div>
 </div>

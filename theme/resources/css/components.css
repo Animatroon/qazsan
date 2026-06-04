@@ -1585,7 +1585,9 @@
   .page-hero--dark p               { color: rgba(255,255,255,0.65); }
   .page-hero--dark .breadcrumbs a          { color: rgba(255,255,255,0.50); }
   .page-hero--dark .breadcrumbs__sep       { color: rgba(255,255,255,0.25); }
-  .page-hero--dark .breadcrumbs li:last-child a { color: rgba(255,255,255,0.80); font-weight:700; }
+  .page-hero--dark .breadcrumbs span       { color: rgba(255,255,255,0.50); }
+  .page-hero--dark .breadcrumbs li:last-child a,
+  .page-hero--dark .breadcrumbs li:last-child span { color: rgba(255,255,255,0.80); font-weight:700; }
 
   /* ── Breadcrumbs ────────────────────────────────────────────────── */
 
@@ -4575,3 +4577,36 @@
     border-color: var(--klein-blue);
     color: var(--klein-blue);
   }
+
+/* ── Generic page header (page.blade.php fallback) ─────────────── */
+
+.page-header {
+  padding-top: 136px;
+  padding-bottom: 48px;
+  background: var(--off-white);
+  border-bottom: 1px solid var(--warm-grey);
+}
+
+.page-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  color: var(--charcoal);
+}
+
+@media (min-width: 768px) {
+  .page-header h1 { font-size: 48px; }
+}
+
+.page-header .container {
+  max-width: 1280px;
+}
+
+.page-header > * {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
