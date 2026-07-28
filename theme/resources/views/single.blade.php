@@ -2,7 +2,9 @@
 
 @section('content')
 @php
+  global $post;
   $post    = get_queried_object();
+  setup_postdata($post);
   $cats    = get_the_category($post->ID);
   $thumb   = get_the_post_thumbnail_url($post, 'large');
   $related = get_posts([
@@ -85,6 +87,14 @@
     </div>
   </div>
 </section>
+
+@if(comments_open() || get_comments_number())
+  <section class="section bg-off-white">
+    <div class="container max-w-3xl">
+      @php(comments_template())
+    </div>
+  </section>
+@endif
 
 @if(count($related))
   <section class="py-16 bg-off-white border-t border-warm-grey">
