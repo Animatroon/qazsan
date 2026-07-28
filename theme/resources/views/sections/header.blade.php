@@ -10,7 +10,7 @@
   $phone = qazaqstan_option('phone_primary') ?: '+7 (727) 264-64-54';
 @endphp
 
-<header data-header class="fixed top-0 inset-x-0 z-[30] transition-all duration-300">
+<header data-header class="fixed inset-x-0 z-[30] transition-all duration-300">
   <div class="container flex items-center justify-between h-20">
 
     <a href="{{ home_url('/') }}" class="header-logo transition-opacity duration-300 select-none" aria-label="{{ __('QAZAQSTAN Resort — главная', 'qazaqstan') }}">

@@ -15,6 +15,7 @@
     <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-klein-blue focus:text-white focus:rounded-md" href="#main">
       {{ __('Перейти к контенту', 'qazaqstan') }}
     </a>
+    @include('partials.dev-notice')
     @include('sections.header')
     <main id="main">
       @yield('content')
