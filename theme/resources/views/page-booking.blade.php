@@ -12,8 +12,9 @@
   ]);
   $discounts = qazaqstan_option('discounts') ?: [
     ['label' => 'Пенсионеры по возрасту', 'percent' => 10],
-    ['label' => 'Сотрудники МВД РК',       'percent' => 20],
+    ['label' => 'Сотрудники МВД РК',       'percent' => 30],
     ['label' => 'Пенсионеры МВД РК',       'percent' => 30],
+    ['label' => 'Семьи погибших сотрудников МВД', 'percent' => 50],
   ];
   $pkgItems = qazaqstan_option('package_includes') ?: [
     ['item' => 'Проживание и 5-разовое питание'],

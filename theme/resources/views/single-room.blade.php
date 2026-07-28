@@ -25,8 +25,9 @@
     'post__not_in' => [$post->ID], 'orderby' => 'rand',
   ]);
   $discounts = qazaqstan_option('discounts') ?: [
+    ['label' => 'семьи погибших сотрудников МВД', 'percent' => 50],
     ['label' => 'пенсионеры МВД', 'percent' => 30],
-    ['label' => 'сотрудники МВД', 'percent' => 20],
+    ['label' => 'сотрудники МВД', 'percent' => 30],
     ['label' => 'пенсионеры',     'percent' => 10],
   ];
   $phone = qazaqstan_option('phone_primary') ?: '+7 (727) 264-64-54';

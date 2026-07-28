@@ -7,10 +7,6 @@
   $heroPoster = get_theme_mod('hero_poster') ?: get_theme_mod('hero_image');
   $discounts  = qazaqstan_option('discounts') ?: [];
   $mvdPct     = '30%';
-  foreach ($discounts as $d) {
-    if (isset($d['percent']) && (int)$d['percent'] === 30) { $mvdPct = '30%'; break; }
-    if (isset($d['percent']) && (int)$d['percent'] === 20) { $mvdPct = '20%'; }
-  }
 @endphp
 <section data-hero class="hero" aria-label="{{ __('Главный баннер', 'qazaqstan') }}">
   @if($heroPoster)
@@ -246,8 +242,9 @@
 @php
   $discountList = is_array($discounts) && count($discounts) ? $discounts : [
     ['label' => 'Пенсионеры по возрасту',  'percent' => 10, 'note' => 'Требуется пенсионное удостоверение'],
-    ['label' => 'Сотрудники МВД РК',        'percent' => 20, 'note' => 'Действующие сотрудники и члены семей. Служебное удостоверение'],
+    ['label' => 'Сотрудники МВД РК',        'percent' => 30, 'note' => 'Действующие сотрудники и члены семей. Служебное удостоверение'],
     ['label' => 'Пенсионеры МВД РК',        'percent' => 30, 'note' => 'Ветераны МВД и члены семей. Ветеранское удостоверение МВД'],
+    ['label' => 'Семьи погибших сотрудников МВД', 'percent' => 50, 'note' => 'Семьи сотрудников МВД РК, погибших при исполнении служебных обязанностей'],
   ];
 @endphp
 <section class="section discounts-section" id="discounts" aria-labelledby="discounts-heading">
@@ -257,9 +254,9 @@
       <h2 id="discounts-heading" class="h2 text-white mt-4">{{ __('Скидки для отдельных категорий', 'qazaqstan') }}</h2>
       <p class="section-lead section-lead--light mt-4">{{ __('При предъявлении подтверждающих документов на ресепшн', 'qazaqstan') }}</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       @foreach($discountList as $i => $d)
-        <article class="discount-card {{ $i === 1 ? 'discount-card--featured' : '' }}">
+        <article class="discount-card {{ (int) $d['percent'] === 50 ? 'discount-card--featured' : '' }}">
           <div class="discount-card__percent">{{ esc_html($d['percent']) }}%</div>
           <h3 class="discount-card__title">{{ esc_html($d['label']) }}</h3>
           @if(!empty($d['note']))
