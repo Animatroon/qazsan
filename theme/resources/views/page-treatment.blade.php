@@ -188,6 +188,44 @@
   </div>
 </section>
 
+{{-- Путёвки для детей --}}
+@php
+  $childPackage = ['Проживание', '5-разовое питание', 'Посещение бассейна с минеральной водой', 'ЛФК', 'УФО', 'Ингаляции', 'Фитобар', 'Кислородный коктейль', 'Соляная шахта'];
+@endphp
+<section class="section" aria-labelledby="children-heading">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div>
+        <p class="eyebrow eyebrow--cerulean">{{ __('Для семей с детьми', 'qazaqstan') }}</p>
+        <h2 id="children-heading" class="h2 mt-4">{{ __('Путёвки для детей', 'qazaqstan') }}</h2>
+        <p class="mt-5 text-soft-grey text-[17px] leading-relaxed">
+          {{ __('Для посещения бассейна ребёнком нужна справка об отсутствии противопоказаний и эпидемиологическом окружении, закрытый купальный костюм и нескользящие сланцы.', 'qazaqstan') }}
+        </p>
+        <ul class="mt-6 grid grid-cols-2 gap-2.5">
+          @foreach($childPackage as $item)
+            <li class="flex gap-2 items-center text-charcoal text-[14px]">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--may-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              {{ __($item, 'qazaqstan') }}
+            </li>
+          @endforeach
+        </ul>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="p-6 bg-off-white rounded-xl">
+          <p class="font-display font-bold text-charcoal text-[15px]">{{ __('От 3 до 7 лет включительно', 'qazaqstan') }}</p>
+          <p class="mt-3 font-display font-bold text-[28px] text-klein-blue">10 000 ₸</p>
+          <p class="text-soft-grey text-[13px] mt-1">{{ __('за сутки', 'qazaqstan') }}</p>
+        </div>
+        <div class="p-6 bg-off-white rounded-xl">
+          <p class="font-display font-bold text-charcoal text-[15px]">{{ __('От 8 до 13 лет включительно', 'qazaqstan') }}</p>
+          <p class="mt-3 font-display font-bold text-[28px] text-klein-blue">15 000 ₸</p>
+          <p class="text-soft-grey text-[13px] mt-1">{{ __('за сутки', 'qazaqstan') }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
 (function () {
   const tabs = document.querySelectorAll('.profile-tab');

@@ -15,7 +15,7 @@ class ConferenceHall
                 'menu_name'     => __('Конференц-залы', 'qazaqstan'),
             ],
             'public'           => true,
-            'has_archive'      => true,
+            'has_archive'      => false,
             'show_in_rest'     => true,
             'menu_icon'        => 'dashicons-groups',
             'menu_position'    => 8,

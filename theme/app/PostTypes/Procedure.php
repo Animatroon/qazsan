@@ -15,7 +15,7 @@ class Procedure
                 'menu_name'     => __('Процедуры', 'qazaqstan'),
             ],
             'public'           => true,
-            'has_archive'      => true,
+            'has_archive'      => false,
             'show_in_rest'     => true,
             'menu_icon'        => 'dashicons-heart',
             'menu_position'    => 7,

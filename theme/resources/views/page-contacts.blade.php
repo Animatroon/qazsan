@@ -6,6 +6,7 @@
   $address   = qazaqstan_option('address')        ?: 'г. Алматы, пр. Достык, 308';
   $phone1    = qazaqstan_option('phone_primary')   ?: '+7 (727) 264-64-54';
   $phone2    = qazaqstan_option('phone_secondary') ?: '+7 707 691 5008';
+  $phoneSport = qazaqstan_option('phone_sport');
   $email     = qazaqstan_option('email')           ?: 'info@kazakhstansan.kz';
   $hours     = qazaqstan_option('work_hours')      ?: 'Пн–Пт: 08:00–18:00';
   $lat       = qazaqstan_option('map_lat')         ?: '43.2567';
@@ -51,6 +52,10 @@
           <a href="{{ esc_url(qazaqstan_phone_link($phone1)) }}" class="contact-card__value contact-card__value--link">{{ esc_html($phone1) }}</a>
           @if($phone2)
             <a href="{{ esc_url(qazaqstan_phone_link($phone2)) }}" class="contact-card__value contact-card__value--link">{{ esc_html($phone2) }}</a>
+          @endif
+          @if($phoneSport)
+            <p class="contact-card__value text-soft-grey text-[13px] mt-1">{{ __('Спорткомплекс:', 'qazaqstan') }}</p>
+            <a href="{{ esc_url(qazaqstan_phone_link($phoneSport)) }}" class="contact-card__value contact-card__value--link">{{ esc_html($phoneSport) }}</a>
           @endif
           <a href="{{ esc_url(qazaqstan_phone_link($phone1)) }}" class="contact-card__link">{{ __('Позвонить сейчас', 'qazaqstan') }} <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></a>
         </div>

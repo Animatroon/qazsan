@@ -14,7 +14,10 @@ if (! function_exists('qazaqstan_option')) {
     function qazaqstan_option(string $key): mixed
     {
         if (function_exists('get_field')) {
-            return get_field($key, 'option');
+            $value = get_field($key, 'option');
+            if ($value !== null && $value !== false) {
+                return $value;
+            }
         }
         return get_option('qazaqstan_' . $key);
     }

@@ -74,10 +74,10 @@
               @if($priceH || $priceD)
                 <div class="mt-4 p-3 bg-off-white rounded-lg">
                   @if($priceH && $priceH > 0)
-                    <p class="text-[13px] text-soft-grey">{{ __('Час:', 'qazaqstan') }} <strong class="text-charcoal">{{ number_format($priceH, 0, '.', ' ') }} ₸</strong></p>
+                    <p class="text-[13px] text-soft-grey">{{ __('4 часа:', 'qazaqstan') }} <strong class="text-charcoal">{{ number_format($priceH, 0, '.', ' ') }} ₸</strong></p>
                   @endif
                   @if($priceD && $priceD > 0)
-                    <p class="text-[13px] text-soft-grey mt-1">{{ __('День:', 'qazaqstan') }} <strong class="text-charcoal">{{ number_format($priceD, 0, '.', ' ') }} ₸</strong></p>
+                    <p class="text-[13px] text-soft-grey mt-1">{{ __('8 часов:', 'qazaqstan') }} <strong class="text-charcoal">{{ number_format($priceD, 0, '.', ' ') }} ₸</strong></p>
                   @endif
                   @if((!$priceH || $priceH == 0) && (!$priceD || $priceD == 0))
                     <p class="text-[13px] text-soft-grey">{{ __('Цена по запросу', 'qazaqstan') }}</p>
