@@ -226,8 +226,8 @@
       <p class="section-lead mt-4">{{ __('Никаких скрытых платежей — все основные услуги включены в цену путёвки', 'qazaqstan') }}</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-4xl mx-auto">
-      @foreach($pkgList as $item)
-        <div class="included-item">
+      @foreach($pkgList as $i => $item)
+        <div class="included-item {{ $i % 2 === 0 ? 'included-item--water' : 'included-item--nature' }}">
           <div class="included-item__icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
           </div>

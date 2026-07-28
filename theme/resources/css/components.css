@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Rage Italic';
+  font-family: var(--font-accent);
   src: url('../fonts/RageItalic.ttf') format('truetype');
   font-weight: normal;
   font-style: italic;
@@ -63,7 +63,7 @@
   .ql-1, .ql-2, .ql-3 { fill: #3872b8; }
   .ql-1, .ql-3 { stroke: #3872b8; stroke-miterlimit: 10; }
   .ql-1 { stroke-linecap: round; }
-  .ql-4 { fill: #5e9340; font-family: 'Rage Italic', cursive; font-size: 91.09px; }
+  .ql-4 { fill: #5e9340; font-family: var(--font-accent); font-size: 91.09px; }
 
   .logo--white .ql-1,
   .logo--white .ql-2,
@@ -323,8 +323,18 @@
   }
 
   .header-nav-link {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     color: rgba(255, 255, 255, 0.9);
+    transition: opacity 0.2s;
   }
+
+  .header-nav-link:hover { opacity: 0.7; }
 
   [data-header].is-scrolled .header-nav-link {
     color: var(--charcoal);
@@ -388,7 +398,7 @@
     display: flex;
     align-items: center;
     gap: 3px;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 11px;
     letter-spacing: 0.06em;
@@ -412,7 +422,6 @@
     position: absolute;
     top: calc(100% + 10px);
     left: 50%;
-    margin-left: -110px;
     background: #fff;
     border: 1px solid var(--warm-grey);
     border-radius: 14px;
@@ -420,10 +429,10 @@
     min-width: 220px;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-6px);
+    transform: translateX(-50%) translateY(-6px);
     transition: opacity 0.18s, transform 0.18s;
     z-index: 50;
-    box-shadow: 0 8px 32px rgba(42,45,43,0.1);
+    box-shadow: 0 8px 32px rgba(56, 114, 184, 0.12);
   }
 
   .header-dropdown::before {
@@ -439,7 +448,7 @@
   .header-dropdown-wrap:focus-within .header-dropdown {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 
   .header-dropdown a {
@@ -448,7 +457,7 @@
     gap: 10px;
     padding: 10px 14px;
     border-radius: 8px;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-size: 13px;
     font-weight: 600;
     color: var(--charcoal);
@@ -479,54 +488,41 @@
   .header-lang {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 6px;
-    padding: 3px;
-    gap: 2px;
-    transition: background 0.3s, border-color 0.3s;
-  }
-
-  [data-header].is-scrolled .header-lang {
-    background: var(--off-white);
-    border-color: var(--warm-grey);
-  }
-
-  .header-lang__btn {
-    padding: 4px 10px;
-    border: none;
-    border-radius: 4px;
-    background: transparent;
-    cursor: pointer;
-    font-family: 'Manrope', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.5);
-    transition: background 0.2s, color 0.2s;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.55);
     line-height: 1;
+    transition: color 0.3s;
   }
 
-  .header-lang__btn.is-active {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--klein-blue);
-  }
-
-  .header-lang__btn:not(.is-active):hover {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
-  [data-header].is-scrolled .header-lang__btn {
+  [data-header].is-scrolled .header-lang,
+  [data-menu-drawer] .header-lang {
     color: var(--soft-grey);
   }
 
-  [data-header].is-scrolled .header-lang__btn.is-active {
-    background: var(--klein-blue);
-    color: #fff;
+  .header-lang__sep {
+    font-size: 11px;
+    color: currentColor;
+    opacity: 0.5;
   }
 
-  [data-header].is-scrolled .header-lang__btn:not(.is-active):hover {
-    color: var(--charcoal);
+  .header-lang__btn {
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: inherit;
+    line-height: 1;
+    transition: opacity 0.2s;
+  }
+
+  .header-lang__btn:hover { opacity: 0.7; }
+
+  .header-lang__btn.is-active {
+    color: var(--klein-blue);
   }
 
   /* ── Reviews carousel ────────────────────────────────────────────── */
@@ -623,7 +619,7 @@
   /* ── Room card pensioner price ──────────────────────────────────── */
 
   .room-card-v2__price-note {
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 12px;
     color: var(--may-green);
     font-weight: 700;
@@ -678,7 +674,7 @@
   }
 
   .media-placeholder__label {
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -748,7 +744,7 @@
   }
 
   .hero__stat-number {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 34px;
     line-height: 1;
@@ -757,7 +753,7 @@
   }
 
   .hero__stat-label {
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 10px;
     color: rgba(255, 255, 255, 0.45);
@@ -848,7 +844,7 @@
 
   .about-stat__number {
     display: block;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 48px;
     line-height: 1;
@@ -861,7 +857,7 @@
     margin-top: 6px;
     font-size: 14px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   /* ── Treatment cards ────────────────────────────────────────────── */
@@ -898,7 +894,7 @@
   .treatment-card__icon--green  { background: rgba(94, 147, 64, 0.10); color: var(--may-green); }
 
   .treatment-card__title {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 15px;
     line-height: 1.35;
@@ -916,7 +912,7 @@
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 13px;
     color: var(--klein-blue);
@@ -956,7 +952,7 @@
     right: 16px;
     background: var(--mustard);
     color: var(--charcoal);
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 11px;
     letter-spacing: 0.05em;
@@ -991,7 +987,7 @@
   }
 
   .pricing-card__category {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 11px;
     text-transform: uppercase;
@@ -1000,7 +996,7 @@
   }
 
   .pricing-card__title {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 20px;
     color: var(--charcoal);
@@ -1018,11 +1014,11 @@
   .pricing-card__from {
     font-size: 13px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   .pricing-card__amount {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 28px;
     color: var(--charcoal);
@@ -1033,7 +1029,7 @@
   .pricing-card__unit {
     font-size: 13px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   .pricing-card__features {
@@ -1050,7 +1046,7 @@
     gap: 8px;
     font-size: 14px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   .pricing-card__features li svg {
@@ -1064,27 +1060,31 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    padding: 14px 16px;
-    border: 1px solid var(--warm-grey);
-    border-radius: 10px;
-    background: #fff;
+    padding: 8px 4px;
   }
 
   .included-item__icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: rgba(56, 114, 184, 0.08);
-    color: var(--klein-blue);
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
 
+  .included-item--water .included-item__icon {
+    background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  }
+
+  .included-item--nature .included-item__icon {
+    background: linear-gradient(135deg, var(--may-green) 0%, var(--light-green) 100%);
+  }
+
   .included-item__text {
-    font-size: 14px;
-    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+    font-family: var(--font-body);
     color: var(--charcoal);
     font-weight: 700;
     line-height: 1.3;
@@ -1119,7 +1119,7 @@
   }
 
   .discount-card__percent {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 64px;
     line-height: 1;
@@ -1133,7 +1133,7 @@
   }
 
   .discount-card__title {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 18px;
     color: #fff;
@@ -1146,7 +1146,7 @@
     color: rgba(255, 255, 255, 0.55);
     margin-top: 8px;
     line-height: 1.55;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   /* ── Sport section ──────────────────────────────────────────────── */
@@ -1189,7 +1189,7 @@
   }
 
   .sport-feature__name {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 15px;
     color: var(--charcoal);
@@ -1198,7 +1198,7 @@
   .sport-feature__desc {
     font-size: 14px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   .sport-images__grid {
@@ -1329,7 +1329,7 @@
     font-size: 15px;
     color: var(--charcoal);
     line-height: 1.65;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-style: italic;
     flex: 1;
     margin: 0;
@@ -1349,7 +1349,7 @@
     border-radius: 9999px;
     background: linear-gradient(135deg, var(--klein-blue), var(--bright-cerulean));
     color: #fff;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 16px;
     display: flex;
@@ -1359,7 +1359,7 @@
   }
 
   .review-card__author {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 15px;
     color: var(--charcoal);
@@ -1368,7 +1368,7 @@
   .review-card__meta {
     font-size: 12px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     margin-top: 2px;
   }
 
@@ -1413,7 +1413,7 @@
     gap: 10px;
     font-size: 15px;
     color: var(--charcoal);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   .conferences-feature svg {
@@ -1469,7 +1469,7 @@
   }
 
   .booking-form__label {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.70);
@@ -1483,7 +1483,7 @@
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
     color: #fff;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 15px;
     transition: border-color 0.2s, background 0.2s;
     appearance: none;
@@ -1515,7 +1515,7 @@
   .booking-form__disclaimer {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.40);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.5;
     text-align: center;
   }
@@ -1549,7 +1549,7 @@
   }
 
   .contact-card__label {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 12px;
     text-transform: uppercase;
@@ -1561,7 +1561,7 @@
   .contact-card__value {
     font-size: 15px;
     color: var(--charcoal);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     display: block;
     line-height: 1.4;
   }
@@ -1578,7 +1578,7 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 13px;
     color: var(--klein-blue);
@@ -1635,7 +1635,7 @@
   .breadcrumbs a {
     font-size: 13px;
     color: var(--soft-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     transition: color 0.2s;
   }
 
@@ -1677,7 +1677,7 @@
     align-items: center;
     gap: 10px;
     padding: 12px 20px;
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 14px;
     color: var(--soft-grey);
@@ -1760,7 +1760,7 @@
   }
 
   .procedure-item__title {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 14px;
     color: var(--charcoal);
@@ -1771,7 +1771,7 @@
     font-size: 13px;
     color: var(--soft-grey);
     margin-top: 3px;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     line-height: 1.5;
   }
 
@@ -1796,7 +1796,7 @@
   }
 
   .diagnosis-num {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 18px;
     color: var(--klein-blue);
@@ -1807,7 +1807,7 @@
   }
 
   .diagnosis-text {
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 14px;
     color: var(--soft-grey);
     line-height: 1.55;
@@ -1845,7 +1845,7 @@
   .room-card__body { padding: 20px; }
 
   .room-card__type {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 11px;
     text-transform: uppercase;
@@ -1854,7 +1854,7 @@
   }
 
   .room-card__title {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 17px;
     color: var(--charcoal);
@@ -1872,7 +1872,7 @@
   }
 
   .room-card__amount {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 800;
     font-size: 22px;
     color: var(--charcoal);
@@ -1898,7 +1898,7 @@
     padding: 3px 8px;
     border-radius: 9999px;
     border: 1px solid var(--warm-grey);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   /* ── Contact form (contacts page) ───────────────────────────────── */
@@ -1918,7 +1918,7 @@
   }
 
   .contact-form__label {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 13px;
     color: var(--charcoal);
@@ -1932,7 +1932,7 @@
     border: 1px solid var(--warm-grey);
     border-radius: 8px;
     color: var(--charcoal);
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
     font-size: 15px;
     transition: border-color 0.2s;
     appearance: none;
@@ -1977,7 +1977,7 @@
   .value-card__icon--cyan  { background: rgba(46,170,225,0.1); color: var(--bright-cerulean); }
 
   .value-card__title {
-    font-family: 'Manrope', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 18px;
     color: var(--charcoal);
@@ -1988,7 +1988,7 @@
     font-size: 15px;
     color: var(--soft-grey);
     line-height: 1.6;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   /* ── CTA band ───────────────────────────────────────────────────── */
@@ -2039,7 +2039,7 @@
   border: 1px solid var(--warm-grey);
   border-radius: 8px;
   color: var(--charcoal);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   transition: border-color 0.2s;
   appearance: none;
@@ -2067,7 +2067,7 @@
   gap: 10px;
   font-size: 14px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   cursor: pointer;
   line-height: 1.5;
 }
@@ -2117,7 +2117,7 @@
 }
 
 .dept-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--charcoal);
@@ -2127,7 +2127,7 @@
 .dept-card__role {
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 3px;
 }
 
@@ -2146,7 +2146,7 @@
   gap: 8px;
   font-size: 14px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.4;
 }
 
@@ -2198,7 +2198,7 @@
 }
 
 .social-link__name {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--charcoal);
@@ -2208,7 +2208,7 @@
 .social-link__handle {
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 2px;
 }
 
@@ -2237,7 +2237,7 @@
 }
 
 .sport-stat__num {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 36px;
   color: var(--klein-blue);
@@ -2245,7 +2245,7 @@
 }
 
 .sport-stat__label {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: var(--soft-grey);
   line-height: 1.4;
@@ -2322,7 +2322,7 @@
 }
 
 .facility-feature__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--charcoal);
@@ -2331,7 +2331,7 @@
 .facility-feature__desc {
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 2px;
   line-height: 1.45;
 }
@@ -2350,7 +2350,7 @@
   color: #fff;
   padding: 10px 8px;
   text-align: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 12px;
   letter-spacing: 0.04em;
@@ -2360,7 +2360,7 @@
   background: var(--off-white);
   padding: 12px 8px;
   text-align: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 12px;
   color: var(--soft-grey);
@@ -2379,7 +2379,7 @@
   background: rgba(56, 114, 184, 0.1);
   border-radius: 6px;
   padding: 5px 7px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   color: var(--klein-blue);
@@ -2411,7 +2411,7 @@
   flex: 1;
   padding: 16px 20px;
   text-align: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--soft-grey);
@@ -2457,13 +2457,13 @@
 }
 
 .hall-spec__label {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: var(--soft-grey);
 }
 
 .hall-spec__value {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--charcoal);
@@ -2493,7 +2493,7 @@
   transform: translateX(-50%);
   background: var(--klein-blue);
   color: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.08em;
@@ -2508,14 +2508,14 @@
 }
 
 .package-card__name {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
   color: var(--charcoal);
 }
 
 .package-card__price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 32px;
   color: var(--klein-blue);
@@ -2526,7 +2526,7 @@
 .package-card__per {
   font-size: 14px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 4px;
 }
 
@@ -2542,7 +2542,7 @@
   padding: 8px 0;
   font-size: 14px;
   color: var(--charcoal);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   border-bottom: 1px solid var(--warm-grey);
 }
 
@@ -2568,7 +2568,7 @@
   border-radius: 9999px;
   border: 1px solid var(--warm-grey);
   background: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--soft-grey);
@@ -2618,7 +2618,7 @@
 .service-card__icon--cyan  { background: rgba(46,170,225,0.1); color: var(--bright-cerulean); }
 
 .service-card__price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 18px;
   color: var(--klein-blue);
@@ -2628,13 +2628,13 @@
 .service-card__unit {
   font-size: 12px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 2px;
   text-align: right;
 }
 
 .service-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 16px;
   color: var(--charcoal);
@@ -2643,7 +2643,7 @@
 .service-card__desc {
   font-size: 14px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.55;
 }
 
@@ -2655,7 +2655,7 @@
   border-top: 1px solid var(--warm-grey);
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 .service-card__meta-item {
@@ -2677,7 +2677,7 @@
   border-radius: 9999px;
   border: 1px solid var(--warm-grey);
   background: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--soft-grey);
@@ -2733,7 +2733,7 @@
 .gallery-item:hover .gallery-item__overlay { background: rgba(31, 58, 82, 0.45); }
 
 .gallery-item__caption {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: #fff;
@@ -2821,7 +2821,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--soft-grey);
@@ -2842,7 +2842,7 @@
 }
 
 .booking-step-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--soft-grey);
@@ -2861,7 +2861,7 @@
 }
 
 .booking-panel__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 22px;
   color: var(--charcoal);
@@ -2890,7 +2890,7 @@
   border-radius: 10px;
   border: 1px solid var(--warm-grey);
   background: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--soft-grey);
@@ -2931,7 +2931,7 @@
 .room-option__thumb img { width:100%; height:100%; object-fit:cover; display:block; }
 
 .room-option__name {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--charcoal);
@@ -2940,12 +2940,12 @@
 .room-option__sub {
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 3px;
 }
 
 .room-option__price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 16px;
   color: var(--klein-blue);
@@ -2985,7 +2985,7 @@
 }
 
 .extra-toggle__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--charcoal);
@@ -2993,7 +2993,7 @@
 }
 
 .extra-toggle__price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--may-green);
@@ -3011,7 +3011,7 @@
   padding: 16px 20px;
   background: var(--klein-blue);
   color: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.04em;
@@ -3026,14 +3026,14 @@
   padding: 12px 20px;
   border-bottom: 1px solid var(--warm-grey);
   font-size: 14px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   color: var(--soft-grey);
 }
 
 .booking-summary__row:last-child { border-bottom: none; }
 
 .booking-summary__value {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--charcoal);
@@ -3049,14 +3049,14 @@
 }
 
 .booking-summary__total-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--charcoal);
 }
 
 .booking-summary__total-price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 24px;
   color: var(--klein-blue);
@@ -3070,7 +3070,7 @@
   border: 1px solid var(--warm-grey);
   border-radius: 12px;
   overflow: hidden;
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
 }
 
@@ -3079,7 +3079,7 @@
   color: #fff;
   padding: 14px 16px;
   text-align: left;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   letter-spacing: 0.04em;
@@ -3103,7 +3103,7 @@
   padding: 3px 10px;
   border-radius: 3px;
   border: 1px solid currentColor;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 10px;
   letter-spacing: 0.06em;
@@ -3150,7 +3150,7 @@
 
 .doc-row__name {
   flex: 1;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--charcoal);
@@ -3159,12 +3159,12 @@
 .doc-row__meta {
   font-size: 12px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 2px;
 }
 
 .doc-row__format {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   color: var(--soft-grey);
@@ -3194,7 +3194,7 @@
 }
 
 .hotline-card__label {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: rgba(255,255,255,0.55);
   text-transform: uppercase;
@@ -3203,7 +3203,7 @@
 }
 
 .hotline-card__number {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 28px;
   color: #fff;
@@ -3214,7 +3214,7 @@
 @media (min-width: 768px) { .hotline-card__number { font-size: 36px; } }
 
 .hotline-card__note {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: rgba(255,255,255,0.65);
   margin-top: 6px;
@@ -3232,7 +3232,7 @@
 .principle-card:hover { border-color: var(--klein-blue); }
 
 .principle-card__num {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 40px;
   color: var(--warm-grey);
@@ -3241,7 +3241,7 @@
 }
 
 .principle-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 17px;
   color: var(--charcoal);
@@ -3251,7 +3251,7 @@
 .principle-card__text {
   font-size: 14px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
 }
 
@@ -3277,14 +3277,14 @@
 }
 
 .vacancy-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
   color: var(--charcoal);
 }
 
 .vacancy-card__salary {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 17px;
   color: var(--may-green);
@@ -3297,7 +3297,7 @@
   gap: 4px;
   padding: 4px 10px;
   border-radius: 9999px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.04em;
@@ -3310,7 +3310,7 @@
 .vacancy-card__desc {
   font-size: 14px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
 }
 
@@ -3329,7 +3329,7 @@
   gap: 8px;
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 .vacancy-card__reqs li::before {
@@ -3366,7 +3366,7 @@
 }
 
 .benefit-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 15px;
   color: var(--charcoal);
@@ -3376,7 +3376,7 @@
 .benefit-card__text {
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.55;
 }
 
@@ -3470,7 +3470,7 @@
   align-items: center;
   padding: 4px 12px;
   border-radius: 9999px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.06em;
@@ -3485,11 +3485,11 @@
 .blog-date {
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 .blog-featured__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 26px;
   color: var(--charcoal);
@@ -3500,7 +3500,7 @@
 @media (min-width: 768px) { .blog-featured__title { font-size: 30px; } }
 
 .blog-featured__excerpt {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   color: var(--soft-grey);
   line-height: 1.65;
@@ -3535,7 +3535,7 @@
 .blog-author__avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .blog-author__name {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--charcoal);
@@ -3544,7 +3544,7 @@
 .blog-author__role {
   font-size: 12px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 .blog-read-time {
@@ -3553,7 +3553,7 @@
   gap: 5px;
   font-size: 13px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
 }
 
 .article-card {
@@ -3594,7 +3594,7 @@
 }
 
 .article-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 17px;
   color: var(--charcoal);
@@ -3602,7 +3602,7 @@
 }
 
 .article-card__excerpt {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: var(--soft-grey);
   line-height: 1.6;
@@ -3637,7 +3637,7 @@
 .sidebar-widget__head {
   padding: 16px 20px;
   border-bottom: 1px solid var(--warm-grey);
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--charcoal);
@@ -3670,7 +3670,7 @@
 .sidebar-post__thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .sidebar-post__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--charcoal);
@@ -3680,7 +3680,7 @@
 .sidebar-post__date {
   font-size: 12px;
   color: var(--soft-grey);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   margin-top: 4px;
 }
 
@@ -3696,7 +3696,7 @@
   border-radius: 9999px;
   border: 1px solid var(--warm-grey);
   background: var(--off-white);
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--soft-grey);
   text-decoration: none;
@@ -3736,7 +3736,7 @@
 }
 
 .post-body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.75;
   color: var(--charcoal);
@@ -3745,7 +3745,7 @@
 .post-body p { margin-bottom: 1.4em; }
 
 .post-body h2 {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 26px;
   color: var(--charcoal);
@@ -3755,7 +3755,7 @@
 }
 
 .post-body h3 {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 20px;
   color: var(--charcoal);
@@ -3778,7 +3778,7 @@
   margin: 2em 0;
   background: rgba(56,114,184,0.04);
   border-radius: 0 12px 12px 0;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 18px;
   line-height: 1.5;
@@ -3811,7 +3811,7 @@
   border: 1px solid var(--warm-grey);
   border-radius: 10px;
   background: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--charcoal);
@@ -3942,7 +3942,7 @@
 }
 
 .included-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 20px;
   color: var(--charcoal);
@@ -3950,7 +3950,7 @@
 }
 
 .included-card__text {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   color: var(--soft-grey);
   line-height: 1.6;
@@ -3969,7 +3969,7 @@
   background: var(--off-white);
   border: 1px solid var(--warm-grey);
   border-radius: 9999px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 12px;
   color: var(--charcoal);
   font-weight: 700;
@@ -4023,7 +4023,7 @@
   left: 14px;
   padding: 5px 14px;
   border-radius: 9999px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.06em;
@@ -4054,7 +4054,7 @@
   color: var(--charcoal);
   padding: 5px 12px;
   border-radius: 9999px;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 11px;
   letter-spacing: 0.05em;
@@ -4070,7 +4070,7 @@
 }
 
 .room-card-v2__name {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 20px;
   color: var(--charcoal);
@@ -4087,7 +4087,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--soft-grey);
 }
@@ -4110,7 +4110,7 @@
 }
 
 .room-card-v2__price-label {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 12px;
   color: var(--soft-grey);
   text-transform: uppercase;
@@ -4119,7 +4119,7 @@
 }
 
 .room-card-v2__price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 26px;
   color: var(--klein-blue);
@@ -4127,7 +4127,7 @@
 }
 
 .room-card-v2__price-unit {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--soft-grey);
 }
@@ -4257,7 +4257,7 @@
 }
 
 .room-spec-box__value {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 22px;
   color: var(--klein-blue);
@@ -4265,7 +4265,7 @@
 }
 
 .room-spec-box__label {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 12px;
   color: var(--soft-grey);
   margin-top: 4px;
@@ -4286,7 +4286,7 @@
   padding: 12px 14px;
   border: 1px solid var(--warm-grey);
   border-radius: 10px;
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: var(--charcoal);
   background: #fff;
@@ -4313,7 +4313,7 @@
 }
 
 .room-price-card__type {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -4322,14 +4322,14 @@
 }
 
 .room-price-card__price {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 36px;
   line-height: 1;
 }
 
 .room-price-card__unit {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   opacity: 0.75;
   margin-top: 4px;
@@ -4353,7 +4353,7 @@
   border: 1px solid var(--warm-grey);
   border-radius: 8px;
   background: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--charcoal);
@@ -4378,14 +4378,14 @@
 }
 
 .room-total-label {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 14px;
   color: var(--charcoal);
 }
 
 .room-total-value {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 24px;
   color: var(--klein-blue);
@@ -4410,7 +4410,7 @@
   border: 1px solid var(--warm-grey);
   border-radius: 10px;
   background: #fff;
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 13px;
   color: var(--soft-grey);
@@ -4464,7 +4464,7 @@
 }
 
 .form-type-header__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 16px;
   color: var(--charcoal);
@@ -4472,7 +4472,7 @@
 }
 
 .form-type-header__text {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: var(--soft-grey);
   line-height: 1.5;
@@ -4531,7 +4531,7 @@
 }
 
 .appeal-type-card__title {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   font-size: 15px;
   color: var(--charcoal);
@@ -4539,7 +4539,7 @@
 }
 
 .appeal-type-card__text {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--soft-grey);
   line-height: 1.5;
@@ -4570,7 +4570,7 @@
 }
 
 .appeal-status-info__text {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   color: var(--soft-grey);
   line-height: 1.6;
@@ -4586,7 +4586,7 @@
     padding: 12px 16px;
     border-radius: 8px;
     font-size: 14px;
-    font-family: 'PT Sans', sans-serif;
+    font-family: var(--font-body);
   }
 
   .contact-form__status.success,
@@ -4636,7 +4636,7 @@
 }
 
 .page-header h1 {
-  font-family: 'Manrope', sans-serif;
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: 32px;
   line-height: 1.2;

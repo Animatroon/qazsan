@@ -25,7 +25,7 @@
           {{ __('Услуги', 'qazaqstan') }}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="header-dropdown -ml-[90px]" role="menu">
+        <div class="header-dropdown" role="menu">
           <a href="{{ home_url('/treatment/') }}" role="menuitem">
             <span class="header-dropdown__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
             {{ __('Лечение', 'qazaqstan') }}
@@ -46,7 +46,7 @@
           {{ __('Пресс-центр', 'qazaqstan') }}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="header-dropdown -ml-[100px]" role="menu">
+        <div class="header-dropdown" role="menu">
           <a href="{{ home_url('/blog/') }}" role="menuitem">
             <span class="header-dropdown__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
             {{ __('Блог и новости', 'qazaqstan') }}
@@ -67,7 +67,7 @@
           {{ __('Инфраструктура', 'qazaqstan') }}
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
-        <div class="header-dropdown -ml-[100px]" role="menu">
+        <div class="header-dropdown" role="menu">
           <a href="{{ home_url('/accommodation/') }}" role="menuitem">
             <span class="header-dropdown__icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
             {{ __('Номера', 'qazaqstan') }}
@@ -89,14 +89,17 @@
 
     <div class="flex items-center gap-2 md:gap-3">
       <div class="header-lang hidden md:flex">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="flex-shrink-0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         @if(!empty($langSwitch))
           @foreach($langSwitch as $slug => $url)
+            @if(!$loop->first)<span class="header-lang__sep" aria-hidden="true">/</span>@endif
             <a href="{{ esc_url($url) }}" class="header-lang__btn {{ $currentLang === $slug ? 'is-active' : '' }}" hreflang="{{ $slug }}">
               {{ $slug === 'kk' ? 'ҚАЗ' : 'РУС' }}
             </a>
           @endforeach
         @else
           <button class="header-lang__btn is-active" type="button">РУС</button>
+          <span class="header-lang__sep" aria-hidden="true">/</span>
           <button class="header-lang__btn" type="button">ҚАЗ</button>
         @endif
       </div>
@@ -147,8 +150,10 @@
     <a href="{{ home_url('/anti-corruption/') }}" class="py-3 border-b border-warm-grey font-display font-bold text-base uppercase tracking-wide hover:text-klein-blue transition-colors">{{ __('Антикоррупция', 'qazaqstan') }}</a>
 
     @if(!empty($langSwitch))
-    <div class="mt-6 flex gap-2">
+    <div class="header-lang mt-6">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="flex-shrink-0"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       @foreach($langSwitch as $slug => $url)
+        @if(!$loop->first)<span class="header-lang__sep" aria-hidden="true">/</span>@endif
         <a href="{{ esc_url($url) }}" class="header-lang__btn {{ $currentLang === $slug ? 'is-active' : '' }}" hreflang="{{ $slug }}">
           {{ $slug === 'kk' ? 'ҚАЗ' : 'РУС' }}
         </a>
