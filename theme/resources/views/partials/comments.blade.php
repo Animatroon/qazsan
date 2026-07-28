@@ -10,7 +10,7 @@
       </ol>
 
       @if ($paginated())
-        <nav aria-label="Comment">
+        <nav aria-label="{{ esc_attr__('Навигация по комментариям', 'qazaqstan') }}">
           <ul class="pager">
             @if ($previous())
               <li class="previous">
@@ -30,7 +30,7 @@
 
     @if ($closed())
       <x-alert type="warning">
-        {!! __('Comments are closed.', 'sage') !!}
+        {{ __('Комментарии закрыты.', 'qazaqstan') }}
       </x-alert>
     @endif
 

@@ -7,8 +7,10 @@
   $salary  = qazaqstan_field('vacancy_salary', $post->ID);
   $status  = qazaqstan_field('vacancy_status', $post->ID) ?: 'open';
   $deadline = qazaqstan_field('vacancy_deadline', $post->ID);
-  $reqs    = qazaqstan_field('vacancy_requirements', $post->ID) ?: [];
-  $duties  = qazaqstan_field('vacancy_duties', $post->ID) ?: [];
+  $reqs    = qazaqstan_field('vacancy_requirements', $post->ID);
+  $reqs    = is_array($reqs) ? $reqs : [];
+  $duties  = qazaqstan_field('vacancy_duties', $post->ID);
+  $duties  = is_array($duties) ? $duties : [];
 @endphp
 
 <div class="pt-[136px] pb-2 bg-off-white border-b border-warm-grey">

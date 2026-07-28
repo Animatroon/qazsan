@@ -4,7 +4,6 @@
 
 {{-- Hero --}}
 @php
-  $heroVideo  = get_theme_mod('hero_video_url');
   $heroPoster = get_theme_mod('hero_poster') ?: get_theme_mod('hero_image');
   $discounts  = qazaqstan_option('discounts') ?: [];
   $mvdPct     = '30%';
@@ -14,12 +13,10 @@
   }
 @endphp
 <section data-hero class="hero" aria-label="{{ __('Главный баннер', 'qazaqstan') }}">
-  @if($heroVideo)
-    <video class="hero__bg" src="{{ esc_url($heroVideo) }}" autoplay muted loop playsinline
-      @if($heroPoster) poster="{{ esc_url($heroPoster) }}" @endif
-      aria-hidden="true" preload="metadata"></video>
-  @elseif($heroPoster)
+  @if($heroPoster)
     <img class="hero__bg" src="{{ esc_url($heroPoster) }}" alt="" aria-hidden="true">
+  @else
+    <div class="hero__bg hero__bg--fallback" aria-hidden="true"></div>
   @endif
   <div class="hero__overlay"></div>
 
@@ -313,17 +310,23 @@
       <div class="sport-images">
         <div class="sport-images__grid">
           <div class="sport-images__main">
-            <img
-              src="{{ $sportImgMain ?: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=700&auto=format&fit=crop&q=80' }}"
-              alt="{{ __('Бассейн с минеральной водой — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="700" height="480">
+            @if($sportImgMain)
+              <img src="{{ esc_url($sportImgMain) }}" alt="{{ __('Бассейн с минеральной водой — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="700" height="480">
+            @else
+              @include('partials.media-placeholder', ['variant' => 'water', 'label' => __('Бассейн', 'qazaqstan')])
+            @endif
           </div>
           <div class="sport-images__secondary">
-            <img
-              src="{{ $sportImgGym ?: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&auto=format&fit=crop&q=80' }}"
-              alt="{{ __('Тренажёрный зал — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="400" height="240">
-            <img
-              src="{{ $sportImgSauna ?: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&auto=format&fit=crop&q=80' }}"
-              alt="{{ __('Сауна — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="400" height="240">
+            @if($sportImgGym)
+              <img src="{{ esc_url($sportImgGym) }}" alt="{{ __('Тренажёрный зал — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="400" height="240">
+            @else
+              @include('partials.media-placeholder', ['variant' => 'nature', 'label' => __('Тренажёрный зал', 'qazaqstan')])
+            @endif
+            @if($sportImgSauna)
+              <img src="{{ esc_url($sportImgSauna) }}" alt="{{ __('Сауна — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="400" height="240">
+            @else
+              @include('partials.media-placeholder', ['variant' => 'water', 'label' => __('Сауна', 'qazaqstan')])
+            @endif
           </div>
         </div>
       </div>
@@ -417,9 +420,11 @@
   <div class="container">
     <div class="conferences-block">
       <div class="conferences-block__image">
-        <img
-          src="{{ $confImg ?: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=700&auto=format&fit=crop&q=80' }}"
-          alt="{{ __('Конференц-зал — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="700" height="500">
+        @if($confImg)
+          <img src="{{ esc_url($confImg) }}" alt="{{ __('Конференц-зал — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="700" height="500">
+        @else
+          @include('partials.media-placeholder', ['variant' => 'water', 'label' => __('Конференц-зал', 'qazaqstan'), 'class' => 'w-full h-full'])
+        @endif
       </div>
       <div class="conferences-block__content">
         <p class="eyebrow">{{ __('Корпоративным клиентам', 'qazaqstan') }}</p>
@@ -586,7 +591,7 @@
     <div class="map-embed" aria-label="{{ __('Карта проезда', 'qazaqstan') }}">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2907.2!2d{{ esc_attr($contactLng) }}!3d{{ esc_attr($contactLat) }}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQVpBUVNUQU4!5e0!3m2!1sru!2skz!4v1"
-        width="100%" height="360" style="border:0;" allowfullscreen="" loading="lazy"
+        width="100%" height="360" class="border-0" allowfullscreen="" loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"
         title="{{ __('Карта расположения QAZAQSTAN Resort', 'qazaqstan') }}"></iframe>
     </div>

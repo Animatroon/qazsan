@@ -9,7 +9,7 @@
     <p class="eyebrow {{ $heroVariant === 'dark' ? 'eyebrow--cerulean' : '' }}">{{ $eyebrow ?? '' }}</p>
     <h1 class="h1 mt-3 {{ $heroVariant === 'dark' ? 'text-white' : '' }}">{!! $heading ?? '' !!}</h1>
     @if(!empty($lead))
-      <p class="mt-4 max-w-xl {{ $heroVariant === 'dark' ? 'text-white/65' : 'text-soft-grey' }}" style="font-size:17px;line-height:1.6;">{{ $lead }}</p>
+      <p class="mt-4 max-w-xl {{ $heroVariant === 'dark' ? 'text-white/65' : 'text-soft-grey' }} text-[17px] leading-[1.6]">{{ $lead }}</p>
     @endif
     @if(!empty($actions))
       <div class="flex flex-wrap gap-3 mt-8">{!! $actions !!}</div>

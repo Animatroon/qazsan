@@ -7,7 +7,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Проживание', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Проживание', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Номера', 'qazaqstan') }}<br><span class="text-white/70 text-[0.7em] font-body font-normal">{{ __('и размещение', 'qazaqstan') }}</span></h1>
-    <p class="mt-5 max-w-xl text-white/72" style="font-size:17px;line-height:1.65;">
+    <p class="mt-5 max-w-xl text-white/72 text-[17px] leading-[1.65]">
       {{ __('Три категории — Стандарт, Люкс и Президентский Люкс. В каждую путёвку включены питание, бассейн и все лечебные процедуры.', 'qazaqstan') }}
     </p>
     <div class="flex flex-wrap gap-3 mt-8">
@@ -34,7 +34,7 @@
     <div class="section-header section-header--center mb-12">
       <p class="eyebrow">{{ __('Базовая программа', 'qazaqstan') }}</p>
       <h2 id="included-heading" class="h2 mt-4">{{ __('Что входит в каждую путёвку', 'qazaqstan') }}</h2>
-      <p class="mt-4 text-soft-grey max-w-[520px] mx-auto" style="font-size:17px;">
+      <p class="mt-4 text-soft-grey max-w-[520px] mx-auto text-[17px]">
         {{ __('Независимо от категории — все эти услуги включены в стоимость без доплат', 'qazaqstan') }}
       </p>
     </div>
@@ -130,7 +130,7 @@
     ['label' => 'Пенсионеры МВД РК',       'percent' => 30, 'note' => 'Ветераны МВД и члены семей'],
   ];
 @endphp
-<section class="section" style="background:var(--footer-navy);" aria-labelledby="disc-heading">
+<section class="section bg-footer-navy" aria-labelledby="disc-heading">
   <div class="container">
     <div class="section-header section-header--center mb-12">
       <p class="eyebrow eyebrow--cerulean">{{ __('Льготы', 'qazaqstan') }}</p>

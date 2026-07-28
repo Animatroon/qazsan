@@ -7,7 +7,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('О санатории', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('О санатории', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Многопрофильный лечебный комплекс с 40-летней историей', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('АО «Санаторий Казахстан» — одно из старейших здравниц Алматы. Принимаем гостей круглый год в предгорьях Алатау с 1985 года.', 'qazaqstan') }}
     </p>
   </div>
@@ -32,10 +32,11 @@
       </div>
       <div class="rounded-xl overflow-hidden aspect-[4/3]">
         @php $aboutImg = get_theme_mod('about_history_image'); @endphp
-        <img
-          src="{{ $aboutImg ?: 'https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=800&auto=format&fit=crop&q=80' }}"
-          alt="{{ __('Санаторий QAZAQSTAN Resort — главный корпус', 'qazaqstan') }}"
-          loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @if($aboutImg)
+          <img src="{{ esc_url($aboutImg) }}" alt="{{ __('Санаторий QAZAQSTAN Resort — главный корпус', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @else
+          @include('partials.media-placeholder', ['variant' => 'water', 'label' => __('Главный корпус', 'qazaqstan')])
+        @endif
       </div>
     </div>
   </div>
@@ -103,13 +104,13 @@
       <div class="order-2 lg:order-1">
         <div class="grid grid-cols-2 gap-4">
           @foreach([
-            ['https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&auto=format&fit=crop&q=80', 'Бассейн'],
-            ['https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&auto=format&fit=crop&q=80', 'Номер'],
-            ['https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&auto=format&fit=crop&q=80', 'Тренажёрный зал'],
-            ['https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=500&auto=format&fit=crop&q=80', 'Конференц-зал'],
-          ] as [$src, $alt])
+            ['water',  'Бассейн'],
+            ['nature', 'Номер'],
+            ['nature', 'Тренажёрный зал'],
+            ['water',  'Конференц-зал'],
+          ] as [$variant, $label])
             <div class="rounded-xl overflow-hidden aspect-[4/3]">
-              <img src="{{ $src }}" alt="{{ __($alt, 'qazaqstan') }}" loading="lazy" width="500" height="375" class="w-full h-full object-cover">
+              @include('partials.media-placeholder', ['variant' => $variant, 'label' => __($label, 'qazaqstan')])
             </div>
           @endforeach
         </div>
@@ -162,7 +163,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       @foreach($awards as [$color, $title, $desc])
         <div class="text-center p-6 bg-white border border-warm-grey rounded-xl">
-          <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4" style="background:rgba(56,114,184,0.07);color:var(--klein-blue);">
+          <div class="w-14 h-14 rounded-xl flex items-center justify-center mx-auto mb-4 bg-klein-blue/7 text-klein-blue">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
           </div>
           <p class="font-display font-bold text-charcoal text-[15px]">{{ __($title, 'qazaqstan') }}</p>
@@ -197,7 +198,7 @@
       @foreach($licenses as $doc)
         @php $file = qazaqstan_field('document_file', $doc->ID); @endphp
         <div class="flex gap-4 p-5 border border-warm-grey rounded-xl bg-white">
-          <div class="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0" style="background:rgba(56,114,184,0.08);color:var(--klein-blue);">
+          <div class="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0 bg-klein-blue/8 text-klein-blue">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           </div>
           <div>

@@ -27,7 +27,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Госзакупки', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Прозрачность', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Государственные закупки', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('АО «Санаторий Казахстан» осуществляет закупки товаров, работ и услуг в соответствии с законодательством Республики Казахстан.', 'qazaqstan') }}
     </p>
   </div>
@@ -67,7 +67,7 @@
             @foreach($yearDocs as $doc)
               @php $file = qazaqstan_field('document_file', $doc->ID); @endphp
               <div class="flex gap-4 p-5 border border-warm-grey rounded-xl bg-white hover:border-klein-blue transition-colors">
-                <div class="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0" style="background:rgba(56,114,184,0.08);color:var(--klein-blue);">
+                <div class="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0 bg-klein-blue/8 text-klein-blue">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
                 </div>
                 <div class="flex-1 min-w-0">

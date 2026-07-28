@@ -23,7 +23,7 @@
     @if(count($cats))
       <p class="eyebrow eyebrow--cerulean">{{ esc_html($cats[0]->name) }}</p>
     @endif
-    <h1 class="h1 mt-3 text-white" style="max-width:800px;">{{ esc_html($post->post_title) }}</h1>
+    <h1 class="h1 mt-3 text-white max-w-[800px]">{{ esc_html($post->post_title) }}</h1>
     <div class="flex items-center gap-4 mt-5 text-white/55 text-[14px]">
       <span>{{ get_the_date('d F Y', $post) }}</span>
       @php $author = get_the_author_meta('display_name', $post->post_author); @endphp

@@ -7,7 +7,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Лечение', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Лечение', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Санаторно-курортное лечение и оздоровление', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('5 профилей лечения, более 15 видов процедур. Программа составляется врачом после первичной консультации.', 'qazaqstan') }}
     </p>
   </div>

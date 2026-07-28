@@ -29,7 +29,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Бронирование', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Онлайн-бронирование', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Забронируйте путёвку', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('Заполните форму — менеджер подтвердит бронирование в течение 30 минут.', 'qazaqstan') }}
     </p>
   </div>

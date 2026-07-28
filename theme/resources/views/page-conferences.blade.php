@@ -12,7 +12,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Конференц-залы', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Корпоративным клиентам', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Конференц-центр в Алматы', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('Три современно оснащённых зала для деловых мероприятий, конференций и корпоративного отдыха.', 'qazaqstan') }}
     </p>
     <div class="flex flex-wrap gap-3 mt-8">
@@ -46,13 +46,15 @@
         @foreach($halls as $hall)
           @php
             $thumb    = get_the_post_thumbnail_url($hall, 'large');
-            $gallery  = qazaqstan_field('hall_gallery', $hall->ID) ?: [];
-            $img      = $thumb ?: (is_array($gallery) ? ($gallery[0]['sizes']['large'] ?? $gallery[0]['url'] ?? '') : '');
+            $gallery  = qazaqstan_field('hall_gallery', $hall->ID);
+            $gallery  = is_array($gallery) ? $gallery : [];
+            $img      = $thumb ?: ($gallery[0]['sizes']['large'] ?? $gallery[0]['url'] ?? '');
             $area     = qazaqstan_field('hall_area', $hall->ID);
             $capacity = qazaqstan_field('hall_capacity', $hall->ID);
             $priceH   = (int) qazaqstan_field('hall_price_hour', $hall->ID);
             $priceD   = (int) qazaqstan_field('hall_price_day', $hall->ID);
-            $equip    = qazaqstan_field('hall_equipment', $hall->ID) ?: [];
+            $equip    = qazaqstan_field('hall_equipment', $hall->ID);
+            $equip    = is_array($equip) ? $equip : [];
           @endphp
           <article class="card">
             @if($img)

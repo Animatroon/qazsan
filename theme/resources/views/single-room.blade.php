@@ -8,8 +8,10 @@
   $area        = qazaqstan_field('room_area', $post->ID);
   $capacity    = qazaqstan_field('room_capacity', $post->ID);
   $floor       = qazaqstan_field('room_floor', $post->ID);
-  $gallery     = qazaqstan_field('room_gallery', $post->ID) ?: [];
-  $includes    = qazaqstan_field('room_includes', $post->ID) ?: [];
+  $gallery     = qazaqstan_field('room_gallery', $post->ID);
+  $gallery     = is_array($gallery) ? $gallery : [];
+  $includes    = qazaqstan_field('room_includes', $post->ID);
+  $includes    = is_array($includes) ? $includes : [];
   $typeTerms   = wp_get_post_terms($post->ID, 'room_type');
   $typeName    = (!is_wp_error($typeTerms) && count($typeTerms)) ? $typeTerms[0]->name : '';
   $amenities   = wp_get_post_terms($post->ID, 'amenity');
@@ -59,7 +61,7 @@
           </div>
           <h1 id="room-heading" class="h2">{{ esc_html($post->post_title) }}</h1>
           @if($post->post_excerpt)
-            <p class="mt-3 text-soft-grey" style="font-size:17px;line-height:1.65;">{{ esc_html($post->post_excerpt) }}</p>
+            <p class="mt-3 text-soft-grey text-[17px] leading-[1.65]">{{ esc_html($post->post_excerpt) }}</p>
           @endif
         </div>
 
@@ -145,7 +147,7 @@
         {{-- Включено в путёвку --}}
         <div class="mb-10">
           <h2 class="h3 mb-2">{{ __('Включено в стоимость путёвки', 'qazaqstan') }}</h2>
-          <p class="text-soft-grey mb-6" style="font-size:15px;">{{ __('Все эти услуги входят без дополнительной оплаты', 'qazaqstan') }}</p>
+          <p class="text-soft-grey mb-6 text-[15px]">{{ __('Все эти услуги входят без дополнительной оплаты', 'qazaqstan') }}</p>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             @foreach($pkgItems as $pkg)
               <div class="flex items-center gap-2.5 p-3.5 border border-warm-grey rounded-xl text-charcoal text-[14px]">
@@ -248,7 +250,7 @@
                 <div class="px-4 py-3 bg-off-white border-b border-warm-grey">
                   <p class="font-display font-bold text-[12px] text-charcoal uppercase tracking-[0.05em]">{{ __('Прайс-лист на 2026 год', 'qazaqstan') }}</p>
                 </div>
-                <table class="w-full text-[13px]" style="border-collapse:collapse;">
+                <table class="w-full text-[13px] border-collapse">
                   <thead>
                     <tr class="bg-off-white">
                       <th class="px-4 py-2 text-left text-soft-grey font-bold text-[11px] uppercase tracking-[0.05em] border-b border-warm-grey">{{ __('Срок', 'qazaqstan') }}</th>

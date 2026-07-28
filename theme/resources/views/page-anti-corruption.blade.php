@@ -19,7 +19,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Антикоррупция', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Прозрачность', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Антикоррупционная политика', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('АО «Санаторий Казахстан» придерживается принципов прозрачности и нулевой толерантности к коррупции.', 'qazaqstan') }}
     </p>
   </div>
@@ -29,7 +29,7 @@
 <section class="section bg-off-white">
   <div class="container">
     <div class="max-w-2xl mx-auto text-center p-10 border-2 border-klein-blue rounded-2xl bg-white">
-      <div class="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center" style="background:rgba(56,114,184,0.08);color:var(--klein-blue);">
+      <div class="w-16 h-16 rounded-full mx-auto mb-5 flex items-center justify-center bg-klein-blue/8 text-klein-blue">
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.43a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9.91A16 16 0 0 0 14.09 16l1.04-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
       <p class="eyebrow text-center mb-3">{{ __('Горячая линия', 'qazaqstan') }}</p>
@@ -80,7 +80,7 @@
         @foreach($docs as $doc)
           @php $file = qazaqstan_field('document_file', $doc->ID); @endphp
           <div class="flex gap-4 p-5 border border-warm-grey rounded-xl bg-white hover:border-klein-blue transition-colors">
-            <div class="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0" style="background:rgba(56,114,184,0.08);color:var(--klein-blue);">
+            <div class="w-11 h-11 rounded-[10px] flex items-center justify-center flex-shrink-0 bg-klein-blue/8 text-klein-blue">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <div class="flex-1 min-w-0">

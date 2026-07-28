@@ -1,16 +1,13 @@
-<form role="search" method="get" class="search-form" action="{{ home_url('/') }}">
-  <label>
-    <span class="sr-only">
-      {{ _x('Search for:', 'label', 'sage') }}
-    </span>
-
+<form role="search" method="get" class="search-form flex gap-3 max-w-lg" action="{{ home_url('/') }}">
+  <label class="flex-1">
+    <span class="sr-only">{{ __('Поиск по сайту', 'qazaqstan') }}</span>
     <input
       type="search"
-      placeholder="{!! esc_attr_x('Search &hellip;', 'placeholder', 'sage') !!}"
-      value="{!! get_search_query() !!}"
+      class="contact-form__input"
+      placeholder="{{ esc_attr__('Поиск…', 'qazaqstan') }}"
+      value="{{ get_search_query() }}"
       name="s"
     >
   </label>
-
-  <button>{{ _x('Search', 'submit button', 'sage') }}</button>
+  <button type="submit" class="btn btn--primary">{{ __('Найти', 'qazaqstan') }}</button>
 </form>

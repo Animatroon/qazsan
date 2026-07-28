@@ -17,7 +17,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Услуги', 'qazaqstan')]]])
     <p class="eyebrow">{{ __('Что мы предлагаем', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3">{{ __('Дополнительные услуги', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-soft-grey" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-soft-grey text-[17px] leading-[1.6]">
       {{ __('Широкий спектр медицинских и оздоровительных услуг. Часть из них включена в путёвку.', 'qazaqstan') }}
     </p>
   </div>
@@ -68,7 +68,7 @@
           ['ЛФК', 'Лечебная физкультура — групповые и индивидуальные занятия.', true],
         ] as [$title, $desc, $included])
           <article class="card p-6">
-            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style="background:rgba(56,114,184,0.08);color:var(--klein-blue);">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-4 bg-klein-blue/8 text-klein-blue">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             </div>
             <h3 class="card__title">{{ __($title, 'qazaqstan') }}</h3>

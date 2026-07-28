@@ -10,7 +10,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Спорт и бассейн', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Спорт и оздоровление', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Движение — основа здоровья', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('Бассейн с минеральной водой, тренажёрный зал, сауна и лечебная физкультура — всё включено в путёвку.', 'qazaqstan') }}
     </p>
   </div>
@@ -53,8 +53,11 @@
       </div>
       <div class="rounded-xl overflow-hidden aspect-[4/3]">
         @php $poolImg = get_theme_mod('sport_pool_image'); @endphp
-        <img src="{{ $poolImg ?: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&auto=format&fit=crop&q=80' }}"
-          alt="{{ __('Бассейн с минеральной водой — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @if($poolImg)
+          <img src="{{ esc_url($poolImg) }}" alt="{{ __('Бассейн с минеральной водой — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @else
+          @include('partials.media-placeholder', ['variant' => 'water', 'label' => __('Бассейн', 'qazaqstan')])
+        @endif
       </div>
     </div>
   </div>
@@ -66,8 +69,11 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <div class="order-2 lg:order-1 rounded-xl overflow-hidden aspect-[4/3]">
         @php $saunaImg = get_theme_mod('sport_sauna_image'); @endphp
-        <img src="{{ $saunaImg ?: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80' }}"
-          alt="{{ __('Сауна — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @if($saunaImg)
+          <img src="{{ esc_url($saunaImg) }}" alt="{{ __('Сауна — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @else
+          @include('partials.media-placeholder', ['variant' => 'water', 'label' => __('Сауна', 'qazaqstan')])
+        @endif
       </div>
       <div class="order-1 lg:order-2">
         <p class="eyebrow">{{ __('Релакс', 'qazaqstan') }}</p>
@@ -93,8 +99,11 @@
       </div>
       <div class="rounded-xl overflow-hidden aspect-[4/3]">
         @php $gymImg = get_theme_mod('sport_gym_image'); @endphp
-        <img src="{{ $gymImg ?: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&auto=format&fit=crop&q=80' }}"
-          alt="{{ __('Тренажёрный зал — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @if($gymImg)
+          <img src="{{ esc_url($gymImg) }}" alt="{{ __('Тренажёрный зал — QAZAQSTAN Resort', 'qazaqstan') }}" loading="lazy" width="800" height="600" class="w-full h-full object-cover">
+        @else
+          @include('partials.media-placeholder', ['variant' => 'nature', 'label' => __('Тренажёрный зал', 'qazaqstan')])
+        @endif
       </div>
     </div>
   </div>

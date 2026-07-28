@@ -10,6 +10,14 @@ add_filter('body_class', function (array $classes): array {
     return array_merge($classes, ['wp-theme-qazaqstan']);
 });
 
+add_filter('sanitize_title', function (string $title, string $raw_title = '', string $context = 'display'): string {
+    if ($context !== 'save' || $raw_title === '' || ! preg_match('/[\x{0400}-\x{04FF}]/u', $raw_title)) {
+        return $title;
+    }
+
+    return qazaqstan_transliterate($raw_title);
+}, 10, 3);
+
 add_filter('theme_page_templates', function (array $templates): array {
     return array_merge($templates, [
         'template-about'          => __('О санатории', 'qazaqstan'),

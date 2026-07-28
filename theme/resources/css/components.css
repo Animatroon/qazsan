@@ -54,10 +54,6 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
-    .hero__bg[src$=".mp4"],
-    .hero__bg[src$=".webm"] {
-      display: none;
-    }
   }
 }
 
@@ -651,6 +647,41 @@
     height: 100%;
     object-fit: cover;
     object-position: center 40%;
+  }
+
+  .hero__bg--fallback {
+    background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  }
+
+  /* ── Media placeholder ─────────────────────────────────────────── */
+
+  .media-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    padding: 16px;
+  }
+
+  .media-placeholder--water {
+    background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  }
+
+  .media-placeholder--nature {
+    background: linear-gradient(135deg, var(--may-green) 0%, var(--light-green) 100%);
+  }
+
+  .media-placeholder__label {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
 
   .hero__overlay {
@@ -2714,6 +2745,23 @@
 .gallery-item:hover .gallery-item__caption {
   opacity: 1;
   transform: translateY(0);
+}
+
+.gallery-empty {
+  text-align: center;
+  padding: 64px 24px;
+}
+
+.gallery-empty__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 /* ── Booking stepper ────────────────────────────────────────────── */

@@ -18,7 +18,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Контакты', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Контакты', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Свяжитесь с нами', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('Мы находимся в Алматы на проспекте Достык. Принимаем заявки по телефону, форме обратной связи и электронной почте.', 'qazaqstan') }}
     </p>
   </div>
@@ -64,7 +64,7 @@
         <div>
           <p class="contact-card__label">{{ __('Электронная почта', 'qazaqstan') }}</p>
           <a href="mailto:{{ esc_attr($email) }}" class="contact-card__value contact-card__value--link">{{ esc_html($email) }}</a>
-          <p class="contact-card__value" style="color:var(--soft-grey);font-size:13px;">{{ __('Ответ в течение 1 рабочего дня', 'qazaqstan') }}</p>
+          <p class="contact-card__value text-soft-grey text-[13px]">{{ __('Ответ в течение 1 рабочего дня', 'qazaqstan') }}</p>
         </div>
       </div>
       @endif
@@ -76,7 +76,7 @@
         <div>
           <p class="contact-card__label">{{ __('Режим работы', 'qazaqstan') }}</p>
           <p class="contact-card__value">{{ esc_html($hours) }}</p>
-          <p class="contact-card__link" style="color:var(--may-green);font-weight:700;cursor:default;">{{ __('Приём заявок 24/7', 'qazaqstan') }}</p>
+          <p class="contact-card__link text-may-green cursor-default">{{ __('Приём заявок 24/7', 'qazaqstan') }}</p>
         </div>
       </div>
     </div>
@@ -92,13 +92,13 @@
       <div>
         <p class="eyebrow">{{ __('Как нас найти', 'qazaqstan') }}</p>
         <h2 class="h2 mt-3">{{ __('Мы на карте', 'qazaqstan') }}</h2>
-        <p class="mt-4 text-soft-grey" style="font-size:17px;line-height:1.65;">
+        <p class="mt-4 text-soft-grey text-[17px] leading-[1.65]">
           {{ __('Санаторий расположен у подножия гор Заилийского Алатау. Удобный подъезд с проспекта Достык, охраняемая парковка.', 'qazaqstan') }}
         </p>
         <div class="mt-6 rounded-2xl overflow-hidden border border-warm-grey map-embed">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2906.7!2d{{ esc_attr($lng) }}!3d{{ esc_attr($lat) }}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQVpBUVNUQU4!5e0!3m2!1sru!2skz!4v1700000000000"
-            width="100%" height="360" style="border:0;" loading="lazy"
+            width="100%" height="360" class="border-0" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
             title="{{ __('Карта проезда к санаторию «Казахстан»', 'qazaqstan') }}"></iframe>
         </div>
@@ -125,7 +125,7 @@
       <div>
         <p class="eyebrow">{{ __('Обратная связь', 'qazaqstan') }}</p>
         <h2 class="h2 mt-3" id="contact-form-heading">{{ __('Напишите нам', 'qazaqstan') }}</h2>
-        <p class="mt-4 text-soft-grey" style="font-size:17px;line-height:1.65;">{{ __('Выберите тему — ответим в течение одного рабочего дня.', 'qazaqstan') }}</p>
+        <p class="mt-4 text-soft-grey text-[17px] leading-[1.65]">{{ __('Выберите тему — ответим в течение одного рабочего дня.', 'qazaqstan') }}</p>
 
         <div class="form-type-tabs mt-7" id="contactTypeTabs" role="tablist">
           @foreach([

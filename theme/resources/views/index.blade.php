@@ -1,23 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.page-header')
+<section class="page-hero page-hero--dark">
+  <div class="container">
+    @include('partials.breadcrumbs', ['breadcrumbs' => [
+      ['label' => __('Блог', 'qazaqstan')],
+    ]])
+    <p class="eyebrow text-white/60">{{ __('Новости и статьи', 'qazaqstan') }}</p>
+    <h1 class="h1 mt-3 text-white">{!! $title ?? __('Блог', 'qazaqstan') !!}</h1>
+  </div>
+</section>
 
-  @if (! have_posts())
-    <x-alert type="warning">
-      {!! __('Sorry, no results were found.', 'sage') !!}
-    </x-alert>
+<section class="section">
+  <div class="container">
+    @if (! have_posts())
+      <p class="text-soft-grey text-[17px] mb-8">{{ __('Записей пока нет.', 'qazaqstan') }}</p>
+    @endif
 
-    {!! get_search_form(false) !!}
-  @endif
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      @while(have_posts()) @php(the_post())
+        @include('partials.blog-card', ['post' => get_post()])
+      @endwhile
+    </div>
 
-  @while(have_posts()) @php(the_post())
-    @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-  @endwhile
-
-  {!! get_the_posts_navigation() !!}
-@endsection
-
-@section('sidebar')
-  @include('sections.sidebar')
+    <div class="mt-12">
+      {!! get_the_posts_navigation(['prev_text' => __('Назад', 'qazaqstan'), 'next_text' => __('Вперёд', 'qazaqstan')]) !!}
+    </div>
+  </div>
+</section>
 @endsection

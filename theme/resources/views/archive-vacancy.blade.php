@@ -21,7 +21,7 @@
     @include('partials.breadcrumbs', ['breadcrumbs' => [['label' => __('Вакансии', 'qazaqstan')]]])
     <p class="eyebrow eyebrow--cerulean">{{ __('Карьера', 'qazaqstan') }}</p>
     <h1 class="h1 mt-3 text-white">{{ __('Работайте там, где важно здоровье', 'qazaqstan') }}</h1>
-    <p class="mt-4 max-w-xl text-white/65" style="font-size:17px;line-height:1.6;">
+    <p class="mt-4 max-w-xl text-white/65 text-[17px] leading-[1.6]">
       {{ __('Мы ищем специалистов, которые разделяют нашу миссию — помогать людям быть здоровыми.', 'qazaqstan') }}
     </p>
   </div>
@@ -68,7 +68,8 @@
             $dept     = qazaqstan_field('vacancy_department', $v->ID);
             $salary   = qazaqstan_field('vacancy_salary', $v->ID);
             $deadline = qazaqstan_field('vacancy_deadline', $v->ID);
-            $duties   = qazaqstan_field('vacancy_duties', $v->ID) ?: [];
+            $duties   = qazaqstan_field('vacancy_duties', $v->ID);
+            $duties   = is_array($duties) ? $duties : [];
           @endphp
           <article class="card p-6">
             <div class="flex items-start justify-between gap-4">
