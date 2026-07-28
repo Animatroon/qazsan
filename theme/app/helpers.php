@@ -37,6 +37,35 @@ if (! function_exists('qazaqstan_phone_link')) {
     }
 }
 
+if (! function_exists('qazaqstan_post_gallery')) {
+    function qazaqstan_post_gallery(int $post_id, mixed $acf_gallery = null): array
+    {
+        if (is_array($acf_gallery) && count($acf_gallery)) {
+            return $acf_gallery;
+        }
+
+        $ids = [];
+        if (has_post_thumbnail($post_id)) {
+            $ids[] = get_post_thumbnail_id($post_id);
+        }
+        foreach (get_attached_media('image', $post_id) as $attachment) {
+            if (! in_array($attachment->ID, $ids, true)) {
+                $ids[] = $attachment->ID;
+            }
+        }
+
+        return array_map(static fn (int $id): array => [
+            'url'   => wp_get_attachment_image_url($id, 'large'),
+            'alt'   => get_post_meta($id, '_wp_attachment_image_alt', true),
+            'sizes' => [
+                'large'     => wp_get_attachment_image_url($id, 'large'),
+                'medium'    => wp_get_attachment_image_url($id, 'medium'),
+                'thumbnail' => wp_get_attachment_image_url($id, 'thumbnail'),
+            ],
+        ], $ids);
+    }
+}
+
 if (! function_exists('qazaqstan_transliterate')) {
     function qazaqstan_transliterate(string $text): string
     {

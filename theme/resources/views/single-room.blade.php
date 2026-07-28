@@ -8,8 +8,7 @@
   $area        = qazaqstan_field('room_area', $post->ID);
   $capacity    = qazaqstan_field('room_capacity', $post->ID);
   $floor       = qazaqstan_field('room_floor', $post->ID);
-  $gallery     = qazaqstan_field('room_gallery', $post->ID);
-  $gallery     = is_array($gallery) ? $gallery : [];
+  $gallery     = qazaqstan_post_gallery($post->ID, qazaqstan_field('room_gallery', $post->ID));
   $includes    = qazaqstan_field('room_includes', $post->ID);
   $includes    = is_array($includes) ? $includes : [];
   $typeTerms   = wp_get_post_terms($post->ID, 'room_type');

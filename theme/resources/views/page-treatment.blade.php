@@ -159,6 +159,42 @@
   </div>
 @endif
 
+{{-- Примеры процедур --}}
+@php
+  $procedureExamples = [
+    ['procedure_geyser_image',    'water',  'Сухие углекислые ванны «Гейзер»', '3 500 ₸ / услуга'],
+    ['procedure_whirlpool_image', 'water',  'Вихревая ванна для ног',          '2 000 ₸ / услуга'],
+    ['procedure_lfk_image',       'nature', 'Групповая ЛФК',                  '3 500 ₸ / 30–45 мин'],
+    ['procedure_paraffin_image',  'nature', 'Парафинолечение',                null],
+  ];
+@endphp
+<section class="section bg-off-white" aria-labelledby="procedure-examples-heading">
+  <div class="container">
+    <div class="section-header section-header--center mb-12">
+      <p class="eyebrow">{{ __('Как это выглядит', 'qazaqstan') }}</p>
+      <h2 id="procedure-examples-heading" class="h2 mt-4">{{ __('Примеры процедур', 'qazaqstan') }}</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      @foreach($procedureExamples as [$mod, $variant, $title, $price])
+        @php $img = get_theme_mod($mod); @endphp
+        <div class="rounded-xl overflow-hidden">
+          <div class="aspect-[4/3]">
+            @if($img)
+              <img src="{{ esc_url($img) }}" alt="{{ __($title, 'qazaqstan') }} — QAZAQSTAN Resort" loading="lazy" width="400" height="300" class="w-full h-full object-cover">
+            @else
+              @include('partials.media-placeholder', ['variant' => $variant, 'label' => __($title, 'qazaqstan')])
+            @endif
+          </div>
+          <div class="p-4 bg-white border border-t-0 border-warm-grey rounded-b-xl">
+            <p class="font-display font-bold text-charcoal text-[14px]">{{ __($title, 'qazaqstan') }}</p>
+            @if($price)<p class="text-soft-grey text-[13px] mt-1">{{ __($price, 'qazaqstan') }}</p>@endif
+          </div>
+        </div>
+      @endforeach
+    </div>
+  </div>
+</section>
+
 {{-- Что включено --}}
 @php
   $pkgItems = qazaqstan_option('package_includes') ?: [
