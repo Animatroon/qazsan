@@ -129,8 +129,29 @@ add_action('after_setup_theme', function () {
         'mobile'   => __('Мобильное меню', 'qazaqstan'),
     ]);
 
-    load_theme_textdomain('qazaqstan', get_template_directory() . '/resources/lang');
 }, 20);
+
+$qazaqstan_load_translations = function (): void {
+    $locale = determine_locale();
+    $dir    = get_template_directory() . '/resources/lang';
+
+    foreach ([$locale, substr($locale, 0, 2)] as $candidate) {
+        foreach (['l10n.php', 'mo'] as $extension) {
+            $file = "{$dir}/{$candidate}.{$extension}";
+            if (is_readable($file)) {
+                load_textdomain('qazaqstan', $file, $locale);
+                return;
+            }
+        }
+    }
+};
+
+add_action('init', $qazaqstan_load_translations, 20);
+
+add_action('change_locale', function () use ($qazaqstan_load_translations) {
+    unload_textdomain('qazaqstan');
+    $qazaqstan_load_translations();
+});
 
 add_action('widgets_init', function () {
     $config = [

@@ -18,6 +18,41 @@ add_filter('sanitize_title', function (string $title, string $raw_title = '', st
     return qazaqstan_transliterate($raw_title);
 }, 10, 3);
 
+add_filter('redirect_canonical', function ($redirect_url, $requested_url) {
+    if (! function_exists('pll_current_language') || ! is_front_page()) {
+        return $redirect_url;
+    }
+
+    return false;
+}, 10, 2);
+
+foreach (['page_on_front', 'page_for_posts'] as $qazaqstan_front_option) {
+    add_filter("pre_option_{$qazaqstan_front_option}", function ($value) use ($qazaqstan_front_option) {
+        static $resolving = false;
+
+        if ($resolving || is_admin() || ! function_exists('pll_current_language')) {
+            return $value;
+        }
+
+        $language = pll_current_language();
+        if (! $language) {
+            return $value;
+        }
+
+        $resolving = true;
+        $original  = (int) get_option($qazaqstan_front_option);
+        $resolving = false;
+
+        if (! $original) {
+            return $value;
+        }
+
+        $translated = pll_get_post($original, $language);
+
+        return $translated ?: $value;
+    });
+}
+
 add_filter('theme_page_templates', function (array $templates): array {
     return array_merge($templates, [
         'template-about'          => __('О санатории', 'qazaqstan'),
