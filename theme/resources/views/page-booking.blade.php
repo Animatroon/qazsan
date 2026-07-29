@@ -131,7 +131,7 @@
           </button>
           <p class="booking-form__disclaimer mt-3">
             {{ __('Нажимая кнопку, вы соглашаетесь с', 'qazaqstan') }}
-            <a href="{{ home_url('/privacy/') }}" class="underline underline-offset-2 hover:no-underline">{{ __('политикой конфиденциальности', 'qazaqstan') }}</a>
+            <a href="{{ qazaqstan_url('/privacy/') }}" class="underline underline-offset-2 hover:no-underline">{{ __('политикой конфиденциальности', 'qazaqstan') }}</a>
           </p>
           <div class="booking-form__status mt-4 hidden" aria-live="polite"></div>
         </form>

@@ -222,7 +222,7 @@
       <div class="p-8 bg-off-white rounded-xl">
         <p class="font-display font-bold text-[17px] text-charcoal mb-4">{{ __('Хотите попасть к нам?', 'qazaqstan') }}</p>
         <p class="text-soft-grey text-[15px] mb-6">{{ __('Весь спортивный комплекс входит в стоимость путёвки. Запишитесь на проживание.', 'qazaqstan') }}</p>
-        <a href="{{ home_url('/booking/') }}" class="btn btn--primary w-full justify-center">{{ __('Забронировать путёвку', 'qazaqstan') }}</a>
+        <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--primary w-full justify-center">{{ __('Забронировать путёвку', 'qazaqstan') }}</a>
         <a href="{{ esc_url(qazaqstan_phone_link($phone)) }}" class="btn btn--secondary w-full justify-center mt-3">{{ esc_html($phone) }}</a>
       </div>
     </div>

@@ -9,8 +9,8 @@
       {{ __('Возможно, страница была перемещена или удалена. Проверьте адрес или воспользуйтесь навигацией.', 'qazaqstan') }}
     </p>
     <div class="flex flex-wrap gap-4 mt-8">
-      <a href="{{ home_url('/') }}" class="btn btn--white">{{ __('На главную', 'qazaqstan') }}</a>
-      <a href="{{ home_url('/contacts/') }}" class="btn btn--ghost-white">{{ __('Контакты', 'qazaqstan') }}</a>
+      <a href="{{ qazaqstan_url('/') }}" class="btn btn--white">{{ __('На главную', 'qazaqstan') }}</a>
+      <a href="{{ qazaqstan_url('/contacts/') }}" class="btn btn--ghost-white">{{ __('Контакты', 'qazaqstan') }}</a>
     </div>
   </div>
 </section>
@@ -25,7 +25,7 @@
         ['url' => '/booking/', 'label' => __('Бронирование', 'qazaqstan')],
         ['url' => '/about/', 'label' => __('О санатории', 'qazaqstan')],
       ] as $link)
-        <a href="{{ home_url($link['url']) }}" class="p-6 border border-warm-grey rounded-xl bg-white font-display font-bold text-charcoal hover:border-klein-blue transition-colors">
+        <a href="{{ qazaqstan_url($link['url']) }}" class="p-6 border border-warm-grey rounded-xl bg-white font-display font-bold text-charcoal hover:border-klein-blue transition-colors">
           {{ $link['label'] }}
         </a>
       @endforeach

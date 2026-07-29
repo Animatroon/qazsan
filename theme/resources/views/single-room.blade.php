@@ -35,7 +35,7 @@
 <div class="pt-[136px] pb-2 bg-off-white border-b border-warm-grey">
   <div class="container">
     @include('partials.breadcrumbs', ['breadcrumbs' => [
-      ['label' => __('Проживание', 'qazaqstan'), 'url' => home_url('/accommodation/')],
+      ['label' => __('Проживание', 'qazaqstan'), 'url' => qazaqstan_url('/accommodation/')],
       ['label' => $post->post_title],
     ]])
   </div>
@@ -236,7 +236,7 @@
               </div>
             @endif
 
-            <a href="{{ home_url('/booking/?room=' . $post->ID) }}" class="btn btn--primary w-full justify-center">
+            <a href="{{ qazaqstan_url('/booking/') . '?room=' . $post->ID }}" class="btn btn--primary w-full justify-center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               {{ __('Забронировать', 'qazaqstan') }}
             </a>

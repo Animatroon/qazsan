@@ -53,7 +53,7 @@
 
     <div class="card__actions">
       <a href="{{ get_permalink($room) }}" class="btn btn--primary">{{ __('Подробнее', 'qazaqstan') }}</a>
-      <a href="{{ home_url('/booking/') }}" class="btn btn--secondary">{{ __('Забронировать', 'qazaqstan') }}</a>
+      <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--secondary">{{ __('Забронировать', 'qazaqstan') }}</a>
     </div>
   </div>
 </article>

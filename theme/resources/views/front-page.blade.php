@@ -31,7 +31,7 @@
         </p>
         <div class="flex flex-wrap gap-3 mt-6">
           <a href="#booking" class="btn btn--white btn--lg">{{ __('Забронировать', 'qazaqstan') }}</a>
-          <a href="{{ home_url('/treatment/') }}" class="btn btn--ghost-white btn--lg">{{ __('Программы лечения', 'qazaqstan') }}</a>
+          <a href="{{ qazaqstan_url('/treatment/') }}" class="btn btn--ghost-white btn--lg">{{ __('Программы лечения', 'qazaqstan') }}</a>
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
         <p class="mt-4 text-soft-grey text-[17px] leading-relaxed">
           {{ __('В стоимость путёвки входит всё необходимое: проживание, пятиразовое питание, консультации шести специалистов, бассейн с минеральной водой и назначенные врачом лечебные процедуры.', 'qazaqstan') }}
         </p>
-        <a href="{{ home_url('/about/') }}" class="btn btn--secondary mt-8">{{ __('Об учреждении', 'qazaqstan') }}</a>
+        <a href="{{ qazaqstan_url('/about/') }}" class="btn btn--secondary mt-8">{{ __('Об учреждении', 'qazaqstan') }}</a>
       </div>
       <div class="grid grid-cols-2 gap-4 md:gap-6">
         <div class="about-stat"><span class="about-stat__number">40+</span><span class="about-stat__label">{{ __('лет работы', 'qazaqstan') }}</span></div>
@@ -121,7 +121,7 @@
           </div>
           <h3 class="treatment-card__title">{{ __($title, 'qazaqstan') }}</h3>
           <p class="treatment-card__text">{{ __($desc, 'qazaqstan') }}</p>
-          <a href="{{ home_url('/treatment/') }}" class="treatment-card__link">
+          <a href="{{ qazaqstan_url('/treatment/') }}" class="treatment-card__link">
             {{ __('Подробнее', 'qazaqstan') }}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
           </a>
@@ -130,7 +130,7 @@
       @endif
     </div>
     <div class="text-center mt-10">
-      <a href="{{ home_url('/treatment/') }}" class="btn btn--primary">{{ __('Все программы лечения', 'qazaqstan') }}</a>
+      <a href="{{ qazaqstan_url('/treatment/') }}" class="btn btn--primary">{{ __('Все программы лечения', 'qazaqstan') }}</a>
     </div>
   </div>
 </section>
@@ -153,7 +153,7 @@
         <p class="eyebrow">{{ __('Проживание', 'qazaqstan') }}</p>
         <h2 id="accommodation-heading" class="h2 mt-4">{{ __('Номера и цены', 'qazaqstan') }}</h2>
       </div>
-      <a href="{{ home_url('/accommodation/') }}" class="btn btn--secondary self-start md:self-auto">{{ __('Все номера', 'qazaqstan') }}</a>
+      <a href="{{ qazaqstan_url('/accommodation/') }}" class="btn btn--secondary self-start md:self-auto">{{ __('Все номера', 'qazaqstan') }}</a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       @foreach($rooms as $i => $room)
@@ -302,7 +302,7 @@
             </li>
           @endforeach
         </ul>
-        <a href="{{ home_url('/sport/') }}" class="btn btn--primary mt-8">{{ __('Спортивный комплекс', 'qazaqstan') }}</a>
+        <a href="{{ qazaqstan_url('/sport/') }}" class="btn btn--primary mt-8">{{ __('Спортивный комплекс', 'qazaqstan') }}</a>
       </div>
       <div class="sport-images">
         <div class="sport-images__grid">
@@ -438,8 +438,8 @@
           @endforeach
         </ul>
         <div class="flex flex-wrap gap-3 mt-8">
-          <a href="{{ home_url('/conferences/') }}" class="btn btn--primary">{{ __('Подробнее о залах', 'qazaqstan') }}</a>
-          <a href="{{ home_url('/contacts/') }}" class="btn btn--secondary">{{ __('Запросить предложение', 'qazaqstan') }}</a>
+          <a href="{{ qazaqstan_url('/conferences/') }}" class="btn btn--primary">{{ __('Подробнее о залах', 'qazaqstan') }}</a>
+          <a href="{{ qazaqstan_url('/contacts/') }}" class="btn btn--secondary">{{ __('Запросить предложение', 'qazaqstan') }}</a>
         </div>
       </div>
     </div>
@@ -528,7 +528,7 @@
         <button type="submit" class="btn btn--white btn--block btn--lg mt-2">{{ __('Отправить заявку', 'qazaqstan') }}</button>
         <p class="booking-form__disclaimer mt-3">
           {{ __('Нажимая кнопку, вы соглашаетесь с', 'qazaqstan') }}
-          <a href="{{ home_url('/privacy/') }}" class="underline underline-offset-2 hover:no-underline">{{ __('политикой конфиденциальности', 'qazaqstan') }}</a>
+          <a href="{{ qazaqstan_url('/privacy/') }}" class="underline underline-offset-2 hover:no-underline">{{ __('политикой конфиденциальности', 'qazaqstan') }}</a>
         </p>
       </form>
     </div>
@@ -551,7 +551,7 @@
         <p class="eyebrow">{{ __('Контакты', 'qazaqstan') }}</p>
         <h2 id="contacts-heading" class="h2 mt-4">{{ __('Как нас найти', 'qazaqstan') }}</h2>
       </div>
-      <a href="{{ home_url('/contacts/') }}" class="btn btn--secondary self-start md:self-auto">{{ __('Открыть страницу контактов', 'qazaqstan') }}</a>
+      <a href="{{ qazaqstan_url('/contacts/') }}" class="btn btn--secondary self-start md:self-auto">{{ __('Открыть страницу контактов', 'qazaqstan') }}</a>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
       <div class="contact-card">

@@ -5,7 +5,7 @@
 <nav class="breadcrumbs mb-6" aria-label="{{ __('Хлебные крошки', 'qazaqstan') }}">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
     <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-      <a href="{{ home_url('/') }}" itemprop="item"><span itemprop="name">{{ __('Главная', 'qazaqstan') }}</span></a>
+      <a href="{{ qazaqstan_url('/') }}" itemprop="item"><span itemprop="name">{{ __('Главная', 'qazaqstan') }}</span></a>
       <meta itemprop="position" content="1">
     </li>
     @foreach($crumbs as $i => $crumb)

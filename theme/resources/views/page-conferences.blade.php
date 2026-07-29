@@ -92,7 +92,7 @@
                 </div>
               @endif
               <div class="card__actions">
-                <a href="{{ home_url('/contacts/') }}" class="btn btn--primary">{{ __('Забронировать', 'qazaqstan') }}</a>
+                <a href="{{ qazaqstan_url('/contacts/') }}" class="btn btn--primary">{{ __('Забронировать', 'qazaqstan') }}</a>
               </div>
             </div>
           </article>
@@ -120,7 +120,7 @@
                 <p class="text-[13px] text-soft-grey">{{ __('Цена по запросу', 'qazaqstan') }}</p>
               </div>
               <div class="card__actions">
-                <a href="{{ home_url('/contacts/') }}" class="btn btn--primary">{{ __('Запросить цену', 'qazaqstan') }}</a>
+                <a href="{{ qazaqstan_url('/contacts/') }}" class="btn btn--primary">{{ __('Запросить цену', 'qazaqstan') }}</a>
               </div>
             </div>
           </article>
@@ -157,7 +157,7 @@
         @if($email)
           <a href="mailto:{{ esc_attr($email) }}" class="btn btn--secondary w-full justify-center mt-3">{{ esc_html($email) }}</a>
         @endif
-        <a href="{{ home_url('/contacts/') }}" class="btn btn--ghost w-full justify-center mt-3">{{ __('Написать через форму', 'qazaqstan') }}</a>
+        <a href="{{ qazaqstan_url('/contacts/') }}" class="btn btn--ghost w-full justify-center mt-3">{{ __('Написать через форму', 'qazaqstan') }}</a>
       </div>
     </div>
   </div>

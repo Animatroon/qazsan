@@ -114,7 +114,7 @@
               <span class="pricing-card__amount">{{ number_format($price, 0, '.', ' ') }}</span>
               <span class="pricing-card__unit">₸&nbsp;/&nbsp;{{ __('сут.', 'qazaqstan') }}</span>
             </div>
-            <a href="{{ home_url('/booking/') }}" class="btn btn--primary btn--block mt-6">{{ __('Забронировать', 'qazaqstan') }}</a>
+            <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--primary btn--block mt-6">{{ __('Забронировать', 'qazaqstan') }}</a>
           </div>
         </article>
       @endforeach

@@ -23,6 +23,49 @@ if (! function_exists('qazaqstan_option')) {
     }
 }
 
+if (! function_exists('qazaqstan_url')) {
+    function qazaqstan_url(string $path = '/'): string
+    {
+        $path = '/' . trim($path, '/');
+        $path = $path === '/' ? '/' : $path . '/';
+
+        if (! function_exists('pll_current_language')) {
+            return home_url($path);
+        }
+
+        if ($path === '/') {
+            return function_exists('pll_home_url') ? pll_home_url() : home_url('/');
+        }
+
+        static $cache = [];
+
+        $language = pll_current_language() ?: '';
+        $key      = $language . $path;
+
+        if (isset($cache[$key])) {
+            return $cache[$key];
+        }
+
+        $page = get_page_by_path(trim($path, '/'));
+
+        if ($page && function_exists('pll_get_post')) {
+            $translated = pll_get_post($page->ID, $language);
+            if ($translated) {
+                return $cache[$key] = get_permalink($translated);
+            }
+        }
+
+        if (! $page && $language && function_exists('pll_default_language')) {
+            $default = pll_default_language();
+            if ($language !== $default) {
+                return $cache[$key] = home_url('/' . $language . $path);
+            }
+        }
+
+        return $cache[$key] = home_url($path);
+    }
+}
+
 if (! function_exists('qazaqstan_format_price')) {
     function qazaqstan_format_price(int|float $amount): string
     {

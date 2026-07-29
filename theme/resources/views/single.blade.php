@@ -19,7 +19,7 @@
 <div class="page-hero page-hero--dark">
   <div class="container">
     @include('partials.breadcrumbs', ['breadcrumbs' => [
-      ['label' => __('Блог', 'qazaqstan'), 'url' => home_url('/blog/')],
+      ['label' => __('Блог', 'qazaqstan'), 'url' => qazaqstan_url('/blog/')],
       ['label' => $post->post_title],
     ]])
     @if(count($cats))
@@ -27,7 +27,7 @@
     @endif
     <h1 class="h1 mt-3 text-white max-w-[800px]">{{ esc_html($post->post_title) }}</h1>
     <div class="flex items-center gap-4 mt-5 text-white/55 text-[14px]">
-      <span>{{ get_the_date('d F Y', $post) }}</span>
+      <span>{{ get_the_date('j F Y', $post) }}</span>
       @php $author = get_the_author_meta('display_name', $post->post_author); @endphp
       @if($author)<span>·</span><span>{{ esc_html($author) }}</span>@endif
     </div>
@@ -72,7 +72,7 @@
                 @endif
                 <div>
                   <a href="{{ get_permalink($r) }}" class="text-charcoal text-[14px] font-bold leading-snug hover:text-klein-blue transition-colors line-clamp-2">{{ esc_html($r->post_title) }}</a>
-                  <p class="text-soft-grey text-[12px] mt-1">{{ get_the_date('d.m.Y', $r) }}</p>
+                  <p class="text-soft-grey text-[12px] mt-1">{{ get_the_date('j F Y', $r) }}</p>
                 </div>
               </li>
             @endforeach
@@ -81,7 +81,7 @@
         <div class="mt-6 p-6 bg-klein-blue rounded-xl text-white text-center">
           <p class="font-display font-bold text-[17px]">{{ __('Хотите поправить здоровье?', 'qazaqstan') }}</p>
           <p class="text-white/75 text-[14px] mt-2">{{ __('Оставьте заявку — подберём программу.', 'qazaqstan') }}</p>
-          <a href="{{ home_url('/booking/') }}" class="btn btn--white w-full justify-center mt-4">{{ __('Забронировать', 'qazaqstan') }}</a>
+          <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--white w-full justify-center mt-4">{{ __('Забронировать', 'qazaqstan') }}</a>
         </div>
       </aside>
     </div>

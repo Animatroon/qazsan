@@ -99,7 +99,7 @@
               @if($profile->description)
                 <p class="text-soft-grey text-[16px] leading-relaxed mb-6">{{ esc_html($profile->description) }}</p>
               @endif
-              <a href="{{ home_url('/booking/') }}" class="btn btn--primary w-full justify-center">{{ __('Записаться на лечение', 'qazaqstan') }}</a>
+              <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--primary w-full justify-center">{{ __('Записаться на лечение', 'qazaqstan') }}</a>
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@
             <div class="bg-off-white rounded-xl p-8">
               <h3 class="h3 mb-4">{{ __('Хотите пройти лечение?', 'qazaqstan') }}</h3>
               <p class="text-soft-grey text-[16px] leading-relaxed mb-6">{{ __('Программа составляется индивидуально после консультации с врачом.', 'qazaqstan') }}</p>
-              <a href="{{ home_url('/booking/') }}" class="btn btn--primary w-full justify-center">{{ __('Записаться на лечение', 'qazaqstan') }}</a>
+              <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--primary w-full justify-center">{{ __('Записаться на лечение', 'qazaqstan') }}</a>
               @php $phone = qazaqstan_option('phone_primary') ?: '+7 (727) 264-64-54'; @endphp
               <a href="{{ esc_url(qazaqstan_phone_link($phone)) }}" class="btn btn--secondary w-full justify-center mt-3">{{ esc_html($phone) }}</a>
             </div>

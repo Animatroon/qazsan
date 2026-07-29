@@ -43,25 +43,25 @@
       <div>
         <p class="eyebrow text-white/50 text-[11px]">{{ __('Санаторий', 'qazaqstan') }}</p>
         <ul class="mt-4 space-y-2.5 text-[14px] text-white/80">
-          <li><a href="{{ home_url('/about/') }}"         class="hover:text-bright-cerulean transition-colors">{{ __('О санатории', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/treatment/') }}"     class="hover:text-bright-cerulean transition-colors">{{ __('Услуги', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/accommodation/') }}" class="hover:text-bright-cerulean transition-colors">{{ __('Проживание', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/gallery/') }}"       class="hover:text-bright-cerulean transition-colors">{{ __('Галерея', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/blog/') }}"          class="hover:text-bright-cerulean transition-colors">{{ __('Блог и новости', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/contacts/') }}"      class="hover:text-bright-cerulean transition-colors">{{ __('Контакты', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/about/') }}"         class="hover:text-bright-cerulean transition-colors">{{ __('О санатории', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/treatment/') }}"     class="hover:text-bright-cerulean transition-colors">{{ __('Услуги', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/accommodation/') }}" class="hover:text-bright-cerulean transition-colors">{{ __('Проживание', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/gallery/') }}"       class="hover:text-bright-cerulean transition-colors">{{ __('Галерея', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/blog/') }}"          class="hover:text-bright-cerulean transition-colors">{{ __('Блог и новости', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/contacts/') }}"      class="hover:text-bright-cerulean transition-colors">{{ __('Контакты', 'qazaqstan') }}</a></li>
         </ul>
       </div>
 
       <div>
         <p class="eyebrow text-white/50 text-[11px]">{{ __('Услуги', 'qazaqstan') }}</p>
         <ul class="mt-4 space-y-2.5 text-[14px] text-white/80">
-          <li><a href="{{ home_url('/sport/') }}"          class="hover:text-bright-cerulean transition-colors">{{ __('Спорт и бассейн', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/conferences/') }}"    class="hover:text-bright-cerulean transition-colors">{{ __('Конференц-залы', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/services/') }}"       class="hover:text-bright-cerulean transition-colors">{{ __('Доп. услуги', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/booking/') }}"        class="hover:text-bright-cerulean transition-colors">{{ __('Бронирование', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/vacancies/') }}"      class="hover:text-bright-cerulean transition-colors">{{ __('Вакансии', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/procurement/') }}"    class="hover:text-bright-cerulean transition-colors">{{ __('Госзакупки', 'qazaqstan') }}</a></li>
-          <li><a href="{{ home_url('/anti-corruption/') }}" class="hover:text-bright-cerulean transition-colors">{{ __('Антикоррупция', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/sport/') }}"          class="hover:text-bright-cerulean transition-colors">{{ __('Спорт и бассейн', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/conferences/') }}"    class="hover:text-bright-cerulean transition-colors">{{ __('Конференц-залы', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/services/') }}"       class="hover:text-bright-cerulean transition-colors">{{ __('Доп. услуги', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/booking/') }}"        class="hover:text-bright-cerulean transition-colors">{{ __('Бронирование', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/vacancies/') }}"      class="hover:text-bright-cerulean transition-colors">{{ __('Вакансии', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/procurement/') }}"    class="hover:text-bright-cerulean transition-colors">{{ __('Госзакупки', 'qazaqstan') }}</a></li>
+          <li><a href="{{ qazaqstan_url('/anti-corruption/') }}" class="hover:text-bright-cerulean transition-colors">{{ __('Антикоррупция', 'qazaqstan') }}</a></li>
         </ul>
       </div>
 
@@ -70,7 +70,7 @@
         <p class="mt-4 text-white/75 text-[14px] leading-relaxed">
           {{ __('Оставьте заявку — подберём программу и подтвердим в течение 30 минут.', 'qazaqstan') }}
         </p>
-        <a href="{{ home_url('/booking/') }}" class="btn btn--white mt-5 w-full justify-center">{{ __('Забронировать онлайн', 'qazaqstan') }}</a>
+        <a href="{{ qazaqstan_url('/booking/') }}" class="btn btn--white mt-5 w-full justify-center">{{ __('Забронировать онлайн', 'qazaqstan') }}</a>
         <a href="{{ esc_url(qazaqstan_phone_link($phone1)) }}" class="btn btn--ghost-white mt-3 w-full justify-center text-[13px]">{{ __('Позвонить', 'qazaqstan') }}</a>
       </div>
 
@@ -79,7 +79,7 @@
     <div class="mt-12 pt-8 border-t border-white/10 text-sm text-white/50 flex flex-wrap justify-between gap-4">
       <p>© {{ $year }} {{ __('АО «Санаторий Казахстан». Все права защищены.', 'qazaqstan') }}</p>
       <div class="flex gap-4">
-        <a href="{{ home_url('/privacy/') }}" class="hover:text-white/80 transition-colors">{{ __('Политика конфиденциальности', 'qazaqstan') }}</a>
+        <a href="{{ qazaqstan_url('/privacy/') }}" class="hover:text-white/80 transition-colors">{{ __('Политика конфиденциальности', 'qazaqstan') }}</a>
         <span>kazakhstansan.kz</span>
       </div>
     </div>
