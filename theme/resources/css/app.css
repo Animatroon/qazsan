@@ -80,8 +80,6 @@
   --soft-grey: var(--color-soft-grey);
   --footer-navy: var(--color-footer-navy);
 
-  --gradient-water: linear-gradient(135deg, #3872B8 0%, #2EAAE1 100%);
-  --gradient-nature: linear-gradient(135deg, #5E9340 0%, #8DB25F 100%);
   --z-dropdown: 10;
   --z-sticky: 20;
   --z-header: 30;

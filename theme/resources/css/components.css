@@ -672,7 +672,7 @@
   }
 
   .hero__bg--fallback {
-    background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+    background: var(--klein-blue);
   }
 
   /* ── Media placeholder ─────────────────────────────────────────── */
@@ -692,11 +692,11 @@
   }
 
   .media-placeholder--water {
-    background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+    background: var(--klein-blue);
   }
 
   .media-placeholder--nature {
-    background: linear-gradient(135deg, var(--may-green) 0%, var(--light-green) 100%);
+    background: var(--may-green);
   }
 
   .media-placeholder__label {
@@ -1101,11 +1101,11 @@
   }
 
   .included-item--water .included-item__icon {
-    background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+    background: var(--klein-blue);
   }
 
   .included-item--nature .included-item__icon {
-    background: linear-gradient(135deg, var(--may-green) 0%, var(--light-green) 100%);
+    background: var(--may-green);
   }
 
   .included-item__text {
@@ -1373,7 +1373,7 @@
     width: 40px;
     height: 40px;
     border-radius: 9999px;
-    background: linear-gradient(135deg, var(--klein-blue), var(--bright-cerulean));
+    background: var(--klein-blue);
     color: #fff;
     font-family: var(--font-display);
     font-weight: 800;
@@ -1633,7 +1633,7 @@
   }
 
   .page-hero--dark {
-    background: linear-gradient(150deg, #2a519e 0%, var(--klein-blue) 55%, #3d91cc 100%);
+    background: var(--klein-blue);
     border-bottom: none;
   }
 
@@ -2020,7 +2020,7 @@
   /* ── CTA band ───────────────────────────────────────────────────── */
 
   .cta-band {
-    background: linear-gradient(135deg, #3872B8 0%, #2EAAE1 100%);
+    background: var(--klein-blue);
     padding-block: 80px;
   }
 
@@ -2820,11 +2820,11 @@
 }
 
 .blog-card__placeholder--water {
-  background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  background: var(--klein-blue);
 }
 
 .blog-card__placeholder--nature {
-  background: linear-gradient(135deg, var(--may-green) 0%, var(--light-green) 100%);
+  background: var(--may-green);
 }
 
 .blog-card__badge {
@@ -2916,7 +2916,7 @@
   width: 72px;
   height: 72px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  background: var(--klein-blue);
   color: #fff;
   display: flex;
   align-items: center;
@@ -3336,7 +3336,7 @@
 }
 
 .hotline-card {
-  background: linear-gradient(135deg, var(--klein-blue) 0%, var(--bright-cerulean) 100%);
+  background: var(--klein-blue);
   border-radius: 24px;
   padding: 40px 36px;
   color: #fff;
@@ -4468,7 +4468,7 @@
 
 .room-price-card__head {
   padding: 24px;
-  background: linear-gradient(135deg, #3872B8 0%, #2EAAE1 100%);
+  background: var(--klein-blue);
   color: #fff;
 }
 
