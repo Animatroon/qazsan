@@ -53,10 +53,12 @@ jobs:
           server-dir: httpdocs/wp-content/themes/qazaqstan/
           local-dir: ./theme/
           dangerous-clean-slate: false
+          timeout: 120000
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
+            **/vendor/**
             **/.DS_Store
             **/resources/css/**
             **/resources/js/**
