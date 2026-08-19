@@ -49,11 +49,12 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
+          protocol: ftp
           server-dir: httpdocs/wp-content/themes/qazaqstan/
           local-dir: ./theme/
           dangerous-clean-slate: false
-          timeout: 120000
+          timeout: 300000
+          log-level: minimal
           exclude: |
             **/.git*
             **/.git*/**
